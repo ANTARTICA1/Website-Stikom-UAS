@@ -199,7 +199,10 @@ section:not(.hero):not(.campus-image) {
 
 /* ===== ABOUT ===== */
 .about-new {
-  background: #ffffff;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../src/about-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .about-grid {
@@ -424,7 +427,7 @@ section:not(.hero):not(.campus-image) {
 
 /* ========== FOOTER ========== */
 .footer {
-  background: linear-gradient(135deg, #0a4dbf, #063a91);
+  background: linear-gradient(135deg, #062863, #042763);
   color: #e5edff;
   padding-top: 4rem;
 }
