@@ -126,6 +126,7 @@ nav {
   position: relative;
   overflow: hidden;
   padding: 0;
+  margin-top: 90px;
 }
 
 .hero video {
@@ -166,6 +167,26 @@ nav {
   font-size: 1.1rem;
 }
 
+/*====================== BUTTON =================== */
+.btn-primary {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 15px 38px;
+  background: linear-gradient(135deg, #0a4dbf, #063a91);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 30px rgba(10, 77, 191, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 40px rgba(10, 77, 191, 0.55);
+}
+
 /* ========== GLOBAL SECTION ========== */
 section:not(.hero):not(.campus-image) {
   padding: 4rem 1.5rem;
@@ -176,41 +197,105 @@ section:not(.hero):not(.campus-image) {
   margin: auto;
 }
 
-/* ========== ABOUT ========== */
-.about {
-  background: var(--gray);
-  text-align: center;
+/* ===== ABOUT ===== */
+.about-new {
+  background: #ffffff;
 }
 
-.about h2 {
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-/* ========== KEUNGGULAN ========== */
-.skills h2 {
-  text-align: center;
-  color: var(--primary);
-  margin-bottom: 2rem;
-}
-
-.skill-grid {
+.about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-.skill-card {
+.about-text h2 {
+  color: var(--primary);
+  font-size: 2.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.about-text .subtitle {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.about-points {
+  list-style: none;
+}
+
+.about-points li {
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.about-image img {
+  width: 100%;
+}
+
+/* ===== PROGRAM ===== */
+.program {
+  background: var(--gray);
+}
+
+.section-title {
+  text-align: center;
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: #555;
+}
+
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.program-card {
   background: #fff;
-  padding: 1.5rem;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
+}
+
+.program-card h3 {
+  color: #000;
+  margin-bottom: 0.8rem;
+}
+
+.program-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 45px rgba(10, 77, 191, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-points {
+    text-align: left;
+    display: inline-block;
+  }
 }
 
 /* ========== CAMPUS CARD ========== */
-.campus-section {
-  background: var(--gray);
-}
 
 .campus-grid {
   display: grid;
@@ -237,7 +322,7 @@ section:not(.hero):not(.campus-image) {
 }
 
 .campus-card h3 {
-  color: var(--primary);
+  color: #000;
   margin-bottom: 0.5rem;
 }
 
@@ -269,8 +354,11 @@ section:not(.hero):not(.campus-image) {
 }
 /* ===== AWARD FULL ROW ===== */
 .award {
-  background: #fff;
-  padding: 7rem 1.5rem;
+  background: url("../src/award-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 4rem 1.5rem;
 }
 
 .award-list {
@@ -294,7 +382,7 @@ section:not(.hero):not(.campus-image) {
 .award-content h2 {
   font-family: "Playfair Display", serif;
   font-size: clamp(2.2rem, 4vw, 3rem);
-  color: #0a2a66;
+  color: #c9a24d;
   margin-bottom: 0.4rem;
   letter-spacing: 1px;
 }
@@ -315,7 +403,7 @@ section:not(.hero):not(.campus-image) {
 .padi {
   width: 70px;
   height: 160px;
-  background: url("src/logo.png") no-repeat center;
+  background: url("../src/padi.png") no-repeat center;
   background-size: contain;
 }
 
@@ -332,4 +420,75 @@ section:not(.hero):not(.campus-image) {
   .padi {
     height: 100px;
   }
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: linear-gradient(135deg, #0a4dbf, #063a91);
+  color: #e5edff;
+  padding-top: 4rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.footer-col p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #e5edff;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.socials a {
+  text-decoration: none;
+  color: #e5edff;
+  font-size: 0.95rem;
+}
+
+.socials a:hover {
+  color: #fff;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.85rem;
+  color: #c7d7ff;
 }
