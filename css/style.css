@@ -495,3 +495,119 @@ section:not(.hero):not(.campus-image) {
   font-size: 0.85rem;
   color: #c7d7ff;
 }
+
+/* Tombol Floating Bulat */
+#chat-circle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #003366; /* Warna khas STIKOM */
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+
+#chat-circle:hover {
+  transform: scale(1.1);
+}
+
+/* Kotak Chat */
+.chat-box {
+  display: none;
+  position: fixed;
+  right: 30px;
+  bottom: 110px;
+  width: 350px;
+  max-width: 85vw;
+  height: 500px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.chat-box-header {
+  background: #003366;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-box-toggle {
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 0;
+}
+
+.chat-box-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #fdfdfd;
+}
+
+/* Pesan Chat */
+.chat-logs {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-msg {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.chat-msg.bot {
+  align-self: flex-start;
+  background: #e9ecef;
+  color: #333;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-msg.user {
+  align-self: flex-end;
+  background: #003366;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+/* Input Area */
+.chat-input {
+  border-top: 1px solid #eee;
+  padding: 15px;
+  display: flex;
+  background: white;
+}
+
+.chat-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.chat-submit {
+  background: none;
+  border: none;
+  color: #003366;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+}
