@@ -1,0 +1,335 @@
+:root {
+  --primary: #0a4dbf;
+  --dark: #0f172a;
+  --light: #ffffff;
+  --gray: #f1f5f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* ========== NAVBAR ========== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  position: relative;
+  padding-bottom: 4px;
+  font-weight: 500;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #0f172a;
+    flex-direction: column;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+  }
+
+  .nav-links li {
+    padding: 1rem 0;
+  }
+
+  .nav-links a {
+    color: #fff;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ========== HERO ========== */
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+}
+
+.hero-content p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ========== GLOBAL SECTION ========== */
+section:not(.hero):not(.campus-image) {
+  padding: 4rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ========== ABOUT ========== */
+.about {
+  background: var(--gray);
+  text-align: center;
+}
+
+.about h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* ========== KEUNGGULAN ========== */
+.skills h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== CAMPUS CARD ========== */
+.campus-section {
+  background: var(--gray);
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.campus-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.campus-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.campus-card-content {
+  padding: 1.5rem;
+}
+
+.campus-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.campus-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 45px rgba(10, 77, 191, 0.25);
+}
+
+/* ========== FOOTER IMAGE ========== */
+.campus-image {
+  padding: 0;
+}
+
+.campus-image img {
+  width: 100%;
+  display: block;
+}
+
+/* ========== ANIMATION ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ===== AWARD FULL ROW ===== */
+.award {
+  background: #fff;
+  padding: 7rem 1.5rem;
+}
+
+.award-list {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.award-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2.5rem 0;
+}
+
+.award-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.award-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  color: #0a2a66;
+  margin-bottom: 0.4rem;
+  letter-spacing: 1px;
+}
+
+.award-content p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #777;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ccc, transparent);
+}
+
+/* PADI */
+.padi {
+  width: 70px;
+  height: 160px;
+  background: url("src/logo.png") no-repeat center;
+  background-size: contain;
+}
+
+.padi.right {
+  transform: scaleX(-1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .award-row {
+    flex-direction: column;
+  }
+
+  .padi {
+    height: 100px;
+  }
+}
