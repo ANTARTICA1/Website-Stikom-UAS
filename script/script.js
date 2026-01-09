@@ -68,13 +68,13 @@ function getBotResponse(input) {
   const val = input.toLowerCase();
 
   if (val.includes("jurusan") || val.includes("prodi") || val.includes("kuliah")) {
-    return "ITB STIKOM Bali memiliki berbagai program unggulan seperti: <br>1. Sistem Komputer<br>2. Sistem Informasi<br>3. Teknologi Informasi<br>4. Bisnis Digital<br>5. Manajemen Informatika (D3)";
+    return "ITB STIKOM Bali memiliki berbagai program unggulan seperti: <br>1. Sistem Komputer<br>2. Sistem Informasi<br>3. Teknologi Informasi<br>4. Bisnis Digital<br>5. Manajemen Informatika<br>6. International Dual Degree";
   } else if (val.includes("alamat") || val.includes("lokasi") || val.includes("dimana")) {
     return "Kampus Pusat kami berada di <b>Jl. Raya Puputan No. 86 Renon, Denpasar</b>. Kami juga memiliki kampus di Jimbaran.";
   } else if (val.includes("daftar") || val.includes("pendaftaran") || val.includes("pmb")) {
-    return "Pendaftaran mahasiswa baru bisa dilakukan melalui website <b>siakad.stikom-bali.ac.id</b> atau datang langsung ke ruang PMB di lantai 1.";
+    return "Pendaftaran mahasiswa baru bisa dilakukan melalui website " + "<a href='https://siap.stikom-bali.ac.id/' target='_blank'>https://siap.stikom-bali.ac.id/</a>";
   } else if (val.includes("biaya") || val.includes("harga") || val.includes("spp")) {
-    return "Untuk rincian biaya kuliah, Anda bisa menghubungi bagian administrasi atau mengecek Brosur Digital di situs resmi kami.";
+    return "Untuk rincian biaya kuliah, Anda bisa menghubungi bagian administrasi atau mengecek Brosur Digital di situs resmi kami " + "<a href='https://siap.stikom-bali.ac.id/' target='_blank'>https://siap.stikom-bali.ac.id/</a>";
   } else if (val.includes("halo") || val.includes("hai")) {
     return "Halo! Ada yang bisa saya bantu terkait informasi kampus ITB STIKOM Bali?";
   } else {
@@ -91,3 +91,29 @@ chatInput.addEventListener("keypress", (e) => {
     sendMessage();
   }
 });
+
+// AKSESIBILITAS
+let fontSize = 100;
+
+function toggleAccess() {
+  document.getElementById("accessMenu").classList.toggle("show");
+}
+
+function zoomIn() {
+  if (fontSize < 150) {
+    fontSize += 10;
+    document.body.style.fontSize = fontSize + "%";
+  }
+}
+
+function zoomOut() {
+  if (fontSize > 80) {
+    fontSize -= 10;
+    document.body.style.fontSize = fontSize + "%";
+  }
+}
+
+function resetZoom() {
+  fontSize = 100;
+  document.body.style.fontSize = "100%";
+}

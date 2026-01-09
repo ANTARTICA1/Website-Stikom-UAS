@@ -124,7 +124,7 @@
 
         <div class="campus-grid">
           <div class="campus-card">
-            <img src="src/renon.jpg" />
+            <img src="src/about-bg.png" />
             <div class="campus-card-content">
               <h3>ITB STIKOM Renon</h3>
               <p>Kampus pusat dengan fasilitas lengkap dan lokasi strategis.</p>
@@ -132,7 +132,7 @@
           </div>
 
           <div class="campus-card">
-            <img src="src/abiansemal.jpg" />
+            <img src="src/abiansemal.png" />
             <div class="campus-card-content">
               <h3>ITB STIKOM Abiansemal</h3>
               <p>Lingkungan asri yang mendukung proses belajar mengajar.</p>
@@ -140,7 +140,7 @@
           </div>
 
           <div class="campus-card">
-            <img src="src/jimbaran.jpg" />
+            <img src="src/gedung-jimbaran.jpg" />
             <div class="campus-card-content">
               <h3>ITB STIKOM Jimbaran</h3>
               <p>Kampus modern dekat kawasan pariwisata dan industri kreatif.</p>
@@ -174,6 +174,21 @@
       <div class="chat-input">
         <input type="text" id="chat-input-field" placeholder="Ketik pesan Anda..." />
         <button type="button" class="chat-submit" id="chat-submit-btn">Kirim</button>
+      </div>
+    </div>
+
+    <div class="accessibility-wrapper">
+      <button class="accessibility-main" onclick="toggleAccess()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a2 2 0 100 4 2 2 0 000-4z" />
+          <path d="M4 7h16v2h-6v13h-2V9H4V7z" />
+        </svg>
+      </button>
+
+      <div class="accessibility-menu" id="accessMenu">
+        <button onclick="zoomIn()">A+</button>
+        <button onclick="zoomOut()">A-</button>
+        <button onclick="resetZoom()">A</button>
       </div>
     </div>
 
