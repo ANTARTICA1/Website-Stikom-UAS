@@ -431,77 +431,38 @@ section:not(.hero):not(.campus-image) {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-/* ========== FOOTER ========== */
-.footer {
-  background: linear-gradient(135deg, #062863, #042763);
-  color: #e5edff;
-  padding-top: 4rem;
+/* ========== FOOTER ===============*/
+/* Styling untuk Logo di Footer */
+.footer-logo {
+  max-height: 60px; /* Mengatur tinggi maksimal agar tidak kegedean */
+  width: auto; /* Lebar menyesuaikan otomatis */
+  display: block; /* Agar rapi */
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 1.5rem 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2.5rem;
-}
-
-.footer-col h3,
-.footer-col h4 {
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.footer-col p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col ul li {
-  margin-bottom: 0.6rem;
-  font-size: 0.95rem;
-}
-
-.footer-col ul li a {
-  text-decoration: none;
-  color: #e5edff;
-  transition: color 0.3s;
-}
-
-.footer-col ul li a:hover {
-  color: #ffffff;
-}
-
-.socials {
+/* Styling Efek Hover untuk Link & Sosmed di Footer */
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.socials a {
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
   text-decoration: none;
-  color: #e5edff;
-  font-size: 0.95rem;
+  transition: 0.3s;
 }
 
-.socials a:hover {
-  color: #fff;
+.social-icon:hover {
+  background: var(--primary); /* Menggunakan warna biru stikom */
+  color: white;
+  transform: translateY(-3px);
 }
 
-/* BOTTOM */
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-  padding: 1.2rem;
-  font-size: 0.85rem;
-  color: #c7d7ff;
+footer a:hover {
+  color: white !important;
+  text-decoration: underline !important;
 }
-
 /* BACK TO TOP */
 
 #backToTop {

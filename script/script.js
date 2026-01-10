@@ -122,7 +122,6 @@ function resetZoom() {
 const btnTop = document.getElementById("backToTop");
 
 window.addEventListener("scroll", () => {
-  // 1. Jalankan Reveal (pakai try-catch biar kalau error, tombol tetap aman)
   try {
     if (typeof reveal === "function") {
       reveal();
