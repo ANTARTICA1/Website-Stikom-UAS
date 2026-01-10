@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S1 Teknologi Informasi - ITB STIKOM Bali</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* =========================================
+         CSS KHUSUS HALAMAN PRODI TI
+         (Navbar menggunakan CSS global kamu)
+         ========================================= */
+
+      :root {
+          --stikom-blue: #003366;
+          --stikom-dark: #002244;
+          --tech-cyan: #00d2ff;
+          --bg-light: #f4f7f9;
+          --card-shadow: 0 10px 30px rgba(0, 51, 102, 0.08);
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: var(--bg-light);
+          color: #333;
+          overflow-x: hidden;
+          /* Penting: Jarak agar konten tidak ketutup navbar fixed kamu */
+          padding-top: 90px;
+      }
+
+      /* --- HERO HEADER (Tech Style) --- */
+      .prodi-header {
+          background: linear-gradient(135deg, var(--stikom-dark) 0%, var(--stikom-blue) 100%);
+          color: white;
+          padding: 80px 5% 100px;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
+
+      .header-bg-text {
+          position: absolute; top: -20px; right: -50px;
+          font-size: 15rem; font-weight: 900;
+          color: rgba(255,255,255,0.03); pointer-events: none;
+      }
+      .circuit-lines {
+          position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+          background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+          background-size: 30px 30px; opacity: 0.5;
+      }
+
+      .header-content { z-index: 2; max-width: 600px; }
+      .badge-prodi {
+          background: rgba(0, 210, 255, 0.15); border: 1px solid var(--tech-cyan);
+          color: var(--tech-cyan); padding: 5px 15px; border-radius: 20px;
+          font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+          display: inline-block; margin-bottom: 15px;
+      }
+
+      .header-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+      .header-desc { font-size: 1.1rem; opacity: 0.9; line-height: 1.6; margin-bottom: 30px; }
+
+      /* Kartu Akreditasi */
+      .accreditation-card {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          padding: 30px; border-radius: 20px;
+          max-width: 400px; z-index: 2;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+          position: relative;
+      }
+      .accreditation-card::before {
+          content: ''; position: absolute; top: 0; left: 0; width: 5px; height: 100%;
+          background: var(--tech-cyan); border-radius: 5px 0 0 5px;
+      }
+      .acc-label { font-size: 0.9rem; opacity: 0.8; margin-bottom: 5px; }
+      .acc-grade { font-size: 2.5rem; font-weight: 800; color: var(--tech-cyan); margin-bottom: 5px; }
+      .acc-sk { font-size: 0.8rem; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; margin-top: 10px; }
+
+      /* --- VISI & MISI --- */
+      .section-padding { padding: 80px 5%; }
+
+      .visi-misi-grid {
+          display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px;
+          margin-top: -50px; position: relative; z-index: 5;
+      }
+
+      .visi-box {
+          background: white; padding: 40px; border-radius: 20px;
+          box-shadow: var(--card-shadow);
+          border-top: 5px solid var(--stikom-blue);
+      }
+      .section-head { font-size: 1.5rem; font-weight: 800; color: var(--stikom-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+      .section-head i { color: var(--tech-cyan); }
+      .visi-text { font-size: 1.05rem; line-height: 1.7; color: #555; font-style: italic; }
+
+      .misi-box {
+          background: white; padding: 40px; border-radius: 20px;
+          box-shadow: var(--card-shadow);
+      }
+      .misi-list { display: flex; flex-direction: column; gap: 15px; }
+      .misi-item {
+          display: flex; gap: 15px; padding: 15px; border-radius: 10px;
+          transition: 0.3s; border: 1px solid transparent;
+      }
+      .misi-item:hover { background: #f0f7ff; border-color: #d0e7ff; transform: translateX(10px); }
+      .misi-num {
+          background: var(--stikom-blue); color: white;
+          width: 30px; height: 30px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;
+      }
+      .misi-desc { font-size: 0.95rem; color: #444; line-height: 1.5; }
+
+      /* --- CPL / PROFESI --- */
+      .bg-gradient { background: #f0f4f8; position: relative; }
+      .section-title-center { text-align: center; margin-bottom: 50px; }
+      .section-title-center h2 { font-size: 2.2rem; font-weight: 800; color: var(--stikom-blue); }
+      .section-title-center p { color: #666; max-width: 600px; margin: 10px auto; }
+
+      .pl-grid {
+          display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;
+      }
+
+      .pl-card {
+          background: white; padding: 30px; border-radius: 15px;
+          box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+          transition: 0.3s; position: relative; overflow: hidden;
+          border-bottom: 3px solid transparent;
+      }
+      .pl-card:hover { transform: translateY(-10px); border-bottom-color: var(--tech-cyan); }
+
+      .pl-icon {
+          width: 60px; height: 60px; background: #e0f7ff; color: var(--stikom-blue);
+          border-radius: 12px; display: flex; align-items: center; justify-content: center;
+          font-size: 1.5rem; margin-bottom: 20px;
+      }
+      .pl-code {
+          position: absolute; top: 20px; right: 20px;
+          font-size: 0.8rem; font-weight: 700; color: #ccc;
+      }
+      .pl-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--stikom-blue); }
+      .pl-desc { font-size: 0.9rem; color: #666; line-height: 1.6; }
+
+      /* --- DOSEN & FASILITAS --- */
+      .team-container { max-width: 900px; margin: 0 auto; }
+
+      .team-card {
+          display: flex; align-items: center; gap: 20px;
+          background: white; padding: 20px; border-radius: 50px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 20px;
+          transition: 0.3s; border: 1px solid #eee;
+      }
+      .team-card:hover { transform: scale(1.02); border-color: var(--tech-cyan); }
+
+      .team-avatar {
+          width: 70px; height: 70px; border-radius: 50%;
+          background: #ddd; overflow: hidden; flex-shrink: 0;
+          border: 3px solid white; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+      .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+      .team-info { flex: 1; }
+      .team-role { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--tech-cyan); font-weight: 700; }
+      .team-name { font-size: 1.1rem; font-weight: 700; color: var(--stikom-blue); }
+      .team-degree { font-size: 0.85rem; color: #777; }
+
+      .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--card-shadow); }
+      .lab-item { position: relative; height: 300px; overflow: hidden; group; }
+      .lab-bg { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; filter: brightness(0.7); }
+      .lab-item:hover .lab-bg { transform: scale(1.1); filter: brightness(0.4); }
+      .lab-content { position: absolute; bottom: 0; left: 0; width: 100%; padding: 30px; color: white; z-index: 2; }
+      .lab-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 5px; }
+      .lab-desc { font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: 0.3s; }
+      .lab-item:hover .lab-desc { opacity: 1; transform: translateY(0); }
+
+      footer { background: var(--stikom-dark); color: white; padding: 40px 5%; text-align: center; }
+
+      @media (max-width: 968px) {
+          .prodi-header { flex-direction: column; text-align: center; padding-top: 40px; }
+          .header-content { margin-bottom: 40px; }
+          .visi-misi-grid { grid-template-columns: 1fr; margin-top: 0; }
+          .lab-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#">
+            <img src="src/logo navbar.jpg" alt="Logo ITB STIKOM Bali" />
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li class="menu-item">
+            <a href="#">Tentang Kami <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="#profil">Profil Institusi</a></li>
+              <li><a href="visi-misi.html">Visi & Misi</a></li>
+              <li><a href="sejarah.html">Sejarah Kampus</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#">Program Studi <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="#siskom">Sistem Komputer</a></li>
+              <li><a href="#si">Sistem Informasi</a></li>
+              <li><a href="#ti">Teknologi Informasi</a></li>
+              <li><a href="#bd">Bisnis Digital</a></li>
+            </ul>
+          </li>
+
+          <li><a href="berita.html">Berita & Pengumuman</a></li>
+
+          <li><a href="kontakme.html" class="btn-contact">Hubungi Kami</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+
+    <section class="prodi-header">
+      <div class="circuit-lines"></div>
+      <div class="header-bg-text">IT</div>
+
+      <div class="header-content" data-aos="fade-right">
+        <span class="badge-prodi">Program Sarjana (S1)</span>
+        <h1 class="header-title">Teknologi<br />Informasi</h1>
+        <p class="header-desc">Mencetak ahli <i>IT Security</i>, Integrator Sistem, dan <i>Technopreneur</i> yang siap bersaing di kancah global.</p>
+      </div>
+
+      <div class="accreditation-card" data-aos="fade-left">
+        <div class="acc-label">Status Akreditasi</div>
+        <div class="acc-grade">BAIK</div>
+        <div class="acc-desc">Program Studi Teknologi Informasi, pada Program Sarjana Institut Teknologi dan Bisnis STIKOM Bali, memenuhi syarat peringkat Akreditasi Baik.</div>
+        <div class="acc-sk">No. 5908/SK/BAN-PT/Ak/S/IX/2022</div>
+      </div>
+    </section>
+
+    <section class="section-padding" style="background: #f9f9f9">
+      <div class="visi-misi-grid">
+        <div class="visi-box" data-aos="fade-up">
+          <div class="section-head"><i class="fas fa-eye"></i> Visi Program Studi</div>
+          <p class="visi-text">
+            "Menjadi program Studi yang bertaraf internasional serta unggul pada bidang Ilmu pengetahuan, teknologi, dan seni dengan menekankan pada kompetensi bidang IT Security, Integrator Sistem dan kemampuan dalam Technopreneurship."
+          </p>
+        </div>
+
+        <div class="misi-box" data-aos="fade-up" data-aos-delay="100">
+          <div class="section-head"><i class="fas fa-rocket"></i> Misi Utama</div>
+          <div class="misi-list">
+            <div class="misi-item">
+              <div class="misi-num">1</div>
+              <div class="misi-desc">Melaksanakan Tri Dharma Perguruan Tinggi secara profesional dan berkualitas.</div>
+            </div>
+            <div class="misi-item">
+              <div class="misi-num">2</div>
+              <div class="misi-desc">Membangun kurikulum relevan untuk menghasilkan lulusan kompeten teknis dan adaptif global.</div>
+            </div>
+            <div class="misi-item">
+              <div class="misi-num">3</div>
+              <div class="misi-desc">Membangun kemitraan strategis dengan institusi, industri, dan komunitas internasional.</div>
+            </div>
+            <div class="misi-item">
+              <div class="misi-num">4</div>
+              <div class="misi-desc">Berperan aktif dalam pengembangan IPTEKS.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-gradient">
+      <div class="section-title-center" data-aos="fade-down">
+        <h2>Profil & Kompetensi Lulusan (CPL)</h2>
+        <p>Standar kompetensi yang akan Anda kuasai sebagai lulusan TI STIKOM Bali.</p>
+      </div>
+
+      <div class="pl-grid">
+        <div class="pl-card" data-aos="zoom-in">
+          <div class="pl-code">PL-01</div>
+          <div class="pl-icon"><i class="fas fa-network-wired"></i></div>
+          <h3 class="pl-title">ICT Integrator & Security</h3>
+          <p class="pl-desc">Lulusan memiliki keahlian untuk menganalisis, merancang, menguji, dan mengintegrasikan layanan ICT dengan tetap memperhatikan aspek keamanan teknologi informasi.</p>
+        </div>
+
+        <div class="pl-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="pl-code">PL-02</div>
+          <div class="pl-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3 class="pl-title">Tech Knowledge</h3>
+          <p class="pl-desc">Memiliki pengetahuan bidang ICT umum dan TI khusus, baik teori maupun kemampuan praktis, serta mampu menuangkannya dalam tulisan ilmiah.</p>
+        </div>
+
+        <div class="pl-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="pl-code">PL-03</div>
+          <div class="pl-icon"><i class="fas fa-users-cog"></i></div>
+          <h3 class="pl-title">Professional Ethics</h3>
+          <p class="pl-desc">Kemampuan memimpin, berkomunikasi, kerjasama, beretika baik, sikap anti korupsi, bertanggung jawab, dan menjunjung identitas budaya lokal.</p>
+        </div>
+
+        <div class="pl-card" data-aos="zoom-in" data-aos-delay="300">
+          <div class="pl-code">PL-04</div>
+          <div class="pl-icon"><i class="fas fa-briefcase"></i></div>
+          <h3 class="pl-title">ICT Technopreneur</h3>
+          <p class="pl-desc">Memiliki pengetahuan, kemampuan bisnis, dan jiwa sebagai seorang wirausaha dalam bidang <i>Information, Communication, and Technology</i>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="section-title-center">
+        <h2>Pengelola Program Studi</h2>
+      </div>
+
+      <div class="team-container">
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar">
+            <img src="https://ui-avatars.com/api/?name=I+Wayan+Ardiyasa&background=003366&color=fff" alt="Kaprodi" />
+          </div>
+          <div class="team-info">
+            <div class="team-role">Ketua Program Studi</div>
+            <div class="team-name">I Wayan Ardiyasa, S.Kom., M.MSI.</div>
+          </div>
+        </div>
+
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-avatar">
+            <img src="https://ui-avatars.com/api/?name=Rosalia+Hadi&background=00d2ff&color=fff" alt="Sekretaris" />
+          </div>
+          <div class="team-info">
+            <div class="team-role">Sekretaris Prodi</div>
+            <div class="team-name">Rosalia Hadi, S.Kom., M.T</div>
+          </div>
+        </div>
+
+        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-avatar">
+            <img src="https://ui-avatars.com/api/?name=Ayu+Juli&background=7b2cbf&color=fff" alt="Staff" />
+          </div>
+          <div class="team-info">
+            <div class="team-role">Staf Prodi</div>
+            <div class="team-name">Ni Made Ayu Juli Astari, S.Kom., M.Kom.</div>
+          </div>
+        </div>
+      </div>
+
+      <br /><br /><br />
+
+      <div class="section-title-center">
+        <h2>Fasilitas Pendukung</h2>
+      </div>
+
+      <div class="lab-grid" data-aos="fade-up">
+        <div class="lab-item">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hardware Lab" class="lab-bg" />
+          <div class="lab-content">
+            <div class="lab-title">Laboratorium Hardware</div>
+            <div class="lab-desc">Pusat kegiatan Embedded System, Robotika, dan Internet of Things (IoT).</div>
+          </div>
+        </div>
+        <div class="lab-item">
+          <img src="https://images.unsplash.com/photo-1558494949-efc5270f9c63?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Database Lab" class="lab-bg" />
+          <div class="lab-content">
+            <div class="lab-title">Laboratorium Database</div>
+            <div class="lab-desc">Fasilitas server untuk riset Big Data dan Manajemen Basis Data.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="text-align: center; background: #002244; color: white; padding: 40px">
+      <p>&copy; 2026 Program Studi Teknologi Informasi - ITB STIKOM Bali.</p>
+    </footer>
+
+    <script src="script/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Inisialisasi Animasi Scroll
+      AOS.init({ duration: 800, once: true });
+    </script>
+  </body>
+</html>
