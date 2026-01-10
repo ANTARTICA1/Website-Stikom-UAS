@@ -745,3 +745,434 @@ footer a:hover {
   cursor: pointer;
   margin-left: 10px;
 }
+
+/* CSS UNTUK PRODI */
+/* =========================================
+   STYLE KHUSUS PRODI (THEME SYSTEM) - FIXED
+   ========================================= */
+
+/* =========================================
+   STYLE KHUSUS PRODI (SINGLE BLUE THEME)
+   ========================================= */
+
+/* --- 1. DEFINISI WARNA (GLOBAL BLUE) --- */
+:root {
+  --primary: #003366; /* Biru Stikom Utama */
+  --dark: #002244; /* Biru Gelap (untuk gradient header) */
+  --accent: #00d2ff; /* Cyan Tech (untuk aksen/tombol) */
+  --bg-color: #f4f7f9; /* Background halaman kebiruan pucat */
+  --icon-bg: #e0f7ff; /* Background untuk ikon bulat */
+}
+
+/* --- 2. GLOBAL SETTINGS --- */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: #333;
+  overflow-x: hidden;
+  padding-top: 90px; /* Jarak untuk Navbar Fixed */
+  margin: 0;
+}
+
+/* --- 3. HEADER SECTION --- */
+.prodi-header {
+  /* Gradient Biru Stikom */
+  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+  color: white;
+  padding: 80px 5% 100px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-right-radius: 50px;
+}
+
+/* Dekorasi Latar Belakang Tulisan Besar */
+.header-bg-text {
+  position: absolute;
+  top: -20px;
+  right: -50px;
+  font-size: 15rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.05); /* Transparan putih */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Pola Garis Circuit */
+.circuit-lines {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.badge-prodi {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.header-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.header-desc {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* KARTU AKREDITASI */
+.accreditation-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  z-index: 2;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+.accreditation-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--accent);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.acc-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+.acc-grade {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+.acc-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.acc-sk {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 10px;
+}
+
+/* --- 4. SECTION STYLES --- */
+.section-padding {
+  padding: 80px 5%;
+}
+.bg-gradient {
+  background: var(--bg-color);
+}
+
+.section-title-center {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-title-center h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+.section-title-center p {
+  color: #666;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+/* --- 5. VISI MISI GRID --- */
+.visi-misi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 5;
+}
+
+.visi-box,
+.misi-box {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.visi-box {
+  border-top: 5px solid var(--primary);
+}
+
+.section-head {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-head i {
+  color: var(--primary);
+}
+
+.visi-text {
+  font-style: italic;
+  color: #555;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.misi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.misi-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+.misi-item:hover {
+  background: var(--icon-bg);
+  transform: translateX(5px);
+}
+
+.misi-num {
+  background: var(--primary);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.misi-desc {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* --- 6. CPL GRID (KARTU) --- */
+.pl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.pl-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid transparent;
+}
+.pl-card:hover {
+  transform: translateY(-10px);
+  border-bottom-color: var(--accent);
+}
+
+.pl-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--icon-bg);
+  color: var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.pl-code {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+  color: #ccc;
+  font-size: 0.8rem;
+}
+.pl-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+.pl-desc {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* --- 7. TEAM & FACILITY --- */
+.team-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  transition: 0.3s;
+  border: 1px solid #eee;
+}
+.team-card:hover {
+  transform: scale(1.02);
+  border-color: var(--accent);
+}
+
+.team-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-info {
+  flex: 1;
+}
+.team-role {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.team-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.lab-item {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+.lab-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  filter: brightness(0.7);
+}
+.lab-item:hover .lab-bg {
+  transform: scale(1.1);
+  filter: brightness(0.4);
+}
+.lab-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  color: white;
+  z-index: 2;
+}
+.lab-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.lab-desc {
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+}
+.lab-item:hover .lab-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+  background: #002244;
+  color: white;
+  padding: 40px 5%;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .prodi-header {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 40px;
+  }
+  .header-content {
+    margin-bottom: 40px;
+  }
+  .visi-misi-grid {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S1 Sistem Informasi - ITB STIKOM Bali</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <body class="theme-si">
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="#"><img src="src/logo navbar.jpg" alt="Logo" /></a>
+        </div>
+        <ul class="nav-links">
+          <li class="menu-item">
+            <a href="#">Tentang Kami <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="#profil">Profil</a></li>
+              <li><a href="visi-misi.html">Visi Misi</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#">Program Studi <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="prodi-siskom.html">Sistem Komputer</a></li>
+              <li><a href="prodi-si.html">Sistem Informasi</a></li>
+              <li><a href="prodi-ti.html">Teknologi Informasi</a></li>
+            </ul>
+          </li>
+          <li><a href="berita.html">Berita</a></li>
+          <li><a href="kontakme.html" class="btn-contact">Hubungi Kami</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+      </nav>
+    </header>
+
+    <section class="prodi-header">
+      <div class="circuit-lines"></div>
+      <div class="header-bg-text">SI</div>
+      <div class="header-content" data-aos="fade-right">
+        <span class="badge-prodi">S1 - Sarjana Komputer</span>
+        <h1 class="header-title">Sistem<br />Informasi</h1>
+        <p class="header-desc">Mengintegrasikan solusi bisnis cerdas dengan infrastruktur teknologi. Fokus pada <i>Data Analysis</i>, ERP, dan Manajemen Proyek IT.</p>
+      </div>
+      <div class="accreditation-card" data-aos="fade-left">
+        <div class="acc-label">Status Akreditasi</div>
+        <div class="acc-grade">UNGGUL</div>
+        <div class="acc-desc">Program Studi Sistem Informasi telah terakreditasi Unggul secara Nasional.</div>
+        <div class="acc-sk">SK BAN-PT Internasional</div>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="visi-misi-grid">
+        <div class="visi-box" data-aos="fade-up">
+          <div class="section-head"><i class="fas fa-eye"></i> Visi Program Studi</div>
+          <p class="visi-text">"Menjadi pusat unggulan pendidikan Sistem Informasi yang mendukung ekonomi digital global."</p>
+        </div>
+        <div class="misi-box" data-aos="fade-up" data-aos-delay="100">
+          <div class="section-head"><i class="fas fa-rocket"></i> Misi Utama</div>
+          <div class="misi-list">
+            <div class="misi-item">
+              <div class="misi-num">1</div>
+              <div class="misi-desc">Menyelaraskan strategi bisnis dengan IT.</div>
+            </div>
+            <div class="misi-item">
+              <div class="misi-num">2</div>
+              <div class="misi-desc">Riset Data Science & ERP.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding bg-gradient">
+      <div class="section-title-center" data-aos="fade-down">
+        <h2>Profil Lulusan</h2>
+      </div>
+      <div class="pl-grid">
+        <div class="pl-card" data-aos="zoom-in">
+          <div class="pl-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3 class="pl-title">Data Analyst</h3>
+          <p class="pl-desc">Menerjemahkan data menjadi keputusan bisnis.</p>
+        </div>
+        <div class="pl-card" data-aos="zoom-in" data-aos-delay="100">
+          <div class="pl-icon"><i class="fas fa-sitemap"></i></div>
+          <h3 class="pl-title">ERP Specialist</h3>
+          <p class="pl-desc">Mengelola sistem SAP/Oracle perusahaan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding">
+      <div class="section-title-center"><h2>Pengelola Prodi</h2></div>
+      <div class="team-container">
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-avatar"><img src="https://ui-avatars.com/api/?name=Ricky+Aurelius&background=fbc02d&color=fff" alt="Kaprodi" /></div>
+          <div class="team-info">
+            <div class="team-role">Ketua Program Studi</div>
+            <div class="team-name">Ricky Aurelius, S.Kom., M.Kom.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer><p>&copy; 2026 Sistem Informasi - ITB STIKOM Bali.</p></footer>
+    <script src="script/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+    </script>
+  </body>
+</html>
