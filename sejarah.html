@@ -12,17 +12,41 @@
     <!-- BOOTSTRAP CSS -->
 
     <header>
-      <nav>
+      <nav class="navbar">
         <div class="logo">
-          <img src="src/logo navbar.jpg" alt="Logo ITB STIKOM Bali" />
+          <a href="#">
+            <img src="src/logo navbar.jpg" alt="Logo ITB STIKOM Bali" />
+          </a>
         </div>
         <ul class="nav-links">
-          <li><a href="#hero">Beranda</a></li>
-          <li><a href="#about">Tentang</a></li>
-          <li><a href="#skills">Keunggulan</a></li>
-          <li><a href="#kampus">Kampus</a></li>
+          <li class="menu-item">
+            <a href="#">Tentang Kami <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="#profil">Profil Institusi</a></li>
+              <li><a href="visi-misi.html">Visi & Misi</a></li>
+              <li><a href="sejarah.html">Sejarah Kampus</a></li>
+            </ul>
+          </li>
+          <li class="menu-item">
+            <a href="#">Program Studi <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="#siskom">Sistem Komputer</a></li>
+              <li><a href="#si">Sistem Informasi</a></li>
+              <li><a href="#ti">Teknologi Informasi</a></li>
+              <li><a href="#bd">Bisnis Digital</a></li>
+            </ul>
+          </li>
+
+          <li><a href="berita.html">Berita & Pengumuman</a></li>
+
+          <li><a href="kontakme.html" class="btn-contact">Hubungi Kami</a></li>
         </ul>
-        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
       </nav>
     </header>
 
