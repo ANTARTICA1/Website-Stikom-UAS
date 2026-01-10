@@ -102,18 +102,18 @@ function toggleAccess() {
 function zoomIn() {
   if (fontSize < 150) {
     fontSize += 10;
-    document.body.style.fontSize = fontSize + "%";
+    document.documentElement.style.setProperty("--page-font-size", fontSize + "%");
   }
 }
 
 function zoomOut() {
   if (fontSize > 80) {
     fontSize -= 10;
-    document.body.style.fontSize = fontSize + "%";
+    document.documentElement.style.setProperty("--page-font-size", fontSize + "%");
   }
 }
 
 function resetZoom() {
   fontSize = 100;
-  document.body.style.fontSize = "100%";
+  document.documentElement.style.setProperty("--page-font-size", "100%");
 }

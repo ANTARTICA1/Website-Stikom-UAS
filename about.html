@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- BOOTSTRAP CSS -->
+
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="src/logo navbar.jpg" alt="Logo ITB STIKOM Bali" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#skills">Keunggulan</a></li>
+          <li><a href="#kampus">Kampus</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </nav>
+    </header>
+
+    <section class="history-section py-5">
+      <div class="container-fluid px-lg-5">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold display-6">Sejarah STIKOM Bali</h2>
+          <p class="text-muted fs-5">Perjalanan institusi teknologi unggulan</p>
+        </div>
+
+        <div class="timeline">
+          <!-- ITEM KIRI -->
+          <div class="row mb-5 reveal">
+            <div class="col-lg-6">
+              <div class="history-card">
+                <span class="year">2002</span>
+                <h3>Awal Berdirinya STIKOM Bali</h3>
+                <p>STIKOM Bali berdiri sebagai pelopor pendidikan teknologi informasi di Bali dengan visi mencetak SDM unggul.</p>
+                <ul>
+                  <li>Pionir kampus IT di Bali</li>
+                  <li>Fokus teknologi komputer</li>
+                  <li>Fondasi pendidikan digital</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM KANAN -->
+          <div class="row mb-5 reveal">
+            <div class="col-lg-6 offset-lg-6">
+              <div class="history-card">
+                <span class="year">2005</span>
+                <h3>Pengembangan Program Studi</h3>
+                <p>Perluasan program studi berbasis teknologi informasi untuk menjawab kebutuhan industri.</p>
+                <ul>
+                  <li>Sistem Informasi</li>
+                  <li>Teknik Informatika</li>
+                  <li>Kurikulum berbasis industri</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM KIRI -->
+          <div class="row mb-5 reveal">
+            <div class="col-lg-6">
+              <div class="history-card">
+                <span class="year">2010</span>
+                <h3>Ekspansi Infrastruktur</h3>
+                <p>Pengembangan fasilitas kampus dan laboratorium modern untuk menunjang pembelajaran.</p>
+                <ul>
+                  <li>Lab komputer modern</li>
+                  <li>Ruang multimedia</li>
+                  <li>Sistem akademik digital</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM KANAN -->
+          <div class="row mb-5 reveal">
+            <div class="col-lg-6 offset-lg-6">
+              <div class="history-card">
+                <span class="year">2015</span>
+                <h3>Kerja Sama Industri</h3>
+                <p>Kolaborasi aktif dengan industri dan institusi nasional untuk meningkatkan kualitas lulusan.</p>
+                <ul>
+                  <li>Magang industri</li>
+                  <li>Riset kolaboratif</li>
+                  <li>Link & match kerja</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <button id="chat-circle">💬</button>
+
+    <div class="chat-box">
+      <div class="chat-box-header">
+        STIKOM Bali Assistant
+        <span class="chat-box-toggle">&times;</span>
+      </div>
+
+      <div class="chat-box-body">
+        <div class="chat-logs" id="chat-logs">
+          <div class="chat-msg bot">
+            Halo! Selamat datang di ITB STIKOM Bali. <br /><br />
+            Ada yang bisa saya bantu? Coba tanya tentang <b>jurusan</b>, <b>alamat</b>, atau <b>pendaftaran</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="chat-input-field" placeholder="Ketik pesan Anda..." />
+        <button type="button" class="chat-submit" id="chat-submit-btn">Kirim</button>
+      </div>
+    </div>
+
+    <div class="accessibility-wrapper">
+      <button class="accessibility-main" onclick="toggleAccess()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a2 2 0 100 4 2 2 0 000-4z" />
+          <path d="M4 7h16v2h-6v13h-2V9H4V7z" />
+        </svg>
+      </button>
+
+      <div class="accessibility-menu" id="accessMenu">
+        <button onclick="zoomIn()">A+</button>
+        <button onclick="zoomOut()">A-</button>
+        <button onclick="resetZoom()">A</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>ITB STIKOM Bali</h3>
+          <p>Kampus teknologi dan kreatif yang berfokus pada inovasi, digitalisasi, dan pengembangan SDM unggul.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Link Cepat</h4>
+          <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keunggulan</a></li>
+            <li><a href="#kampus">Kampus</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li>📍 Bali, Indonesia</li>
+            <li>📞 (0361) 123456</li>
+            <li>✉️ info@stikom-bali.ac.id</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ikuti Kami</h4>
+          <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 ITB STIKOM Bali. All rights reserved.</p>
+      </div>
+    </footer>
+    <style>
+      /* =============================
+   HISTORY SECTION
+============================= */
+      .history-section {
+        background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url("src/bg-sejarah.png") center/cover no-repeat;
+        padding-top: 120px !important;
+      }
+
+      /* =============================
+   TIMELINE
+============================= */
+      .timeline {
+        position: relative;
+        max-width: 1600px;
+        margin: auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: #0d6efd;
+        transform: translateX(-50%);
+      }
+
+      /* =============================
+   ITEM SPACING
+============================= */
+      .timeline .row {
+        margin-bottom: 140px; /* <<< KUNCI: 2 card per screen */
+      }
+
+      /* =============================
+   CARD
+============================= */
+      .history-card {
+        background: #ffffff;
+        padding: 70px 80px; /* LEBIH BESAR DARI AWAL, TIDAK OVER */
+        border-radius: 28px;
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.14);
+      }
+
+      /* =============================
+   YEAR BADGE
+============================= */
+      .year {
+        display: inline-block;
+        background: #0d6efd;
+        color: #fff;
+        padding: 10px 26px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+
+      /* =============================
+   TYPOGRAPHY
+============================= */
+      .history-card h3 {
+        font-size: 1.9rem;
+        font-weight: 800;
+        margin-bottom: 22px;
+      }
+
+      .history-card p {
+        font-size: 1.05rem;
+        line-height: 1.85;
+        margin-bottom: 22px;
+      }
+
+      .history-card ul {
+        padding-left: 18px;
+      }
+
+      .history-card li {
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      /* =============================
+   REVEAL OPTIMIZATION
+============================= */
+      .reveal {
+        will-change: transform, opacity;
+      }
+
+      /* =============================
+   MOBILE
+============================= */
+      @media (max-width: 991px) {
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline .row {
+          margin-bottom: 90px;
+        }
+
+        .row > div {
+          margin-left: 30px !important;
+        }
+
+        .history-card {
+          padding: 45px 40px;
+          border-radius: 22px;
+        }
+
+        .history-card h3 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              // beri delay berdasarkan index elemen
+              entry.target.style.transitionDelay = `${index * 0.2}s`; // misal 0.2s per elemen
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.35,
+        }
+      );
+
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        // simpan index di dataset biar bisa dipakai di observer
+        el.dataset.index = index;
+        observer.observe(el);
+      });
+    </script>
+
+    <script src="script/script.js" defer></script>
+  </body>
+</html>
