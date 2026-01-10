@@ -463,6 +463,51 @@ footer a:hover {
   color: white !important;
   text-decoration: underline !important;
 }
+
+/* ======= BERITA PENDEK ======== */
+/* --- NEWS & ANNOUNCEMENT --- */
+.news-img-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.news-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+.news-card:hover .news-img-wrapper img {
+  transform: scale(1.1);
+}
+.date-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--primary);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  z-index: 2;
+}
+
+.list-group-item {
+  border: none;
+  border-left: 4px solid transparent;
+  margin-bottom: 10px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  transition: 0.3s;
+}
+.list-group-item:hover {
+  border-left: 4px solid var(--accent);
+  background: #fffdf5;
+  transform: translateX(5px);
+}
+
 /* BACK TO TOP */
 
 #backToTop {

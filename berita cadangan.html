@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berita & Pengumuman - ITB STIKOM Bali</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --primary: #0056b3;
+        --accent: #ffcc00;
+        --dark: #333;
+        --light-bg: #f4f7f6;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light-bg);
+        color: var(--dark);
+        padding-bottom: 50px;
+      }
+
+      /* --- 1. HEADLINE SECTION (Berita Utama Besar) --- */
+      .headline-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 400px; /* Tinggi Headline */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+      .headline-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .headline-card:hover img {
+        transform: scale(1.05);
+      }
+      .headline-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        padding: 30px;
+        color: white;
+      }
+
+      /* --- 2. NEWS GRID CARD --- */
+      .news-card {
+        border: none;
+        border-radius: 10px;
+        background: white;
+        transition: all 0.3s ease;
+        height: 100%; /* Agar tinggi kartu rata */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+      .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0, 86, 179, 0.15);
+      }
+      .news-thumb {
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+      }
+      .news-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+      }
+      .news-card:hover .news-thumb img {
+        transform: scale(1.1);
+      }
+      .category-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--primary);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        z-index: 2;
+      }
+
+      /* --- 3. SIDEBAR PENGUMUMAN (Sticky) --- */
+      .sidebar-sticky {
+        position: sticky;
+        top: 20px; /* Jarak dari atas saat discroll */
+      }
+      .announcement-card {
+        background: white;
+        border-radius: 10px;
+        border-top: 5px solid var(--accent); /* Garis Kuning di atas */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .announcement-item {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+        transition: 0.2s;
+      }
+      .announcement-item:last-child {
+        border-bottom: none;
+      }
+      .announcement-item:hover {
+        padding-left: 5px;
+      }
+      .date-box {
+        background: #eee;
+        color: #555;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 0.8rem;
+        min-width: 60px;
+      }
+
+      /* Search Bar */
+      .search-box {
+        position: relative;
+      }
+      .search-box input {
+        border-radius: 50px;
+        padding-right: 40px;
+        border: 1px solid #ddd;
+      }
+      .search-box button {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        border: none;
+        background: var(--primary);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background: #ddd; padding: 10px; text-align: center; margin-bottom: 20px; border-bottom: 2px dashed #999">(Area Navbar Kamu)</div>
+    <div class="container mt-4 mb-4">
+      <h2 class="fw-bold border-start border-5 border-primary ps-3">Pusat Berita & Informasi</h2>
+      <p class="text-muted ps-3 mb-0">Update terbaru seputar kegiatan akademik dan prestasi mahasiswa.</p>
+    </div>
+
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12">
+          <a href="#" class="text-decoration-none">
+            <div class="headline-card">
+              <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Headline" />
+              <div class="headline-overlay">
+                <span class="badge bg-warning text-dark mb-2">Prestasi Internasional</span>
+                <h2 class="fw-bold">Mahasiswa ITB STIKOM Bali Raih Gold Medal di Ajang Inovasi Teknologi Jepang 2026</h2>
+                <p class="mb-0 d-none d-md-block">Tim perwakilan kampus berhasil menciptakan alat pendeteksi gempa berbasis IoT yang diapresiasi oleh juri internasional...</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="mb-4 d-flex gap-2 flex-wrap">
+            <button class="btn btn-primary rounded-pill btn-sm px-3">Semua</button>
+            <button class="btn btn-outline-secondary rounded-pill btn-sm px-3">Akademik</button>
+            <button class="btn btn-outline-secondary rounded-pill btn-sm px-3">Mahasiswa</button>
+            <button class="btn btn-outline-secondary rounded-pill btn-sm px-3">Teknologi</button>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card news-card">
+                <div class="news-thumb">
+                  <span class="category-badge">Akademik</span>
+                  <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" />
+                </div>
+                <div class="card-body">
+                  <small class="text-muted"><i class="far fa-clock"></i> 2 Jam yang lalu</small>
+                  <h5 class="card-title fw-bold mt-2"><a href="#" class="text-dark text-decoration-none">Seminar Nasional Cyber Security 2026</a></h5>
+                  <p class="card-text text-muted small">Membahas ancaman ransomware terbaru dan cara penanggulangannya bersama ahli BSSN.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card news-card">
+                <div class="news-thumb">
+                  <span class="category-badge">Kampus</span>
+                  <img src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" />
+                </div>
+                <div class="card-body">
+                  <small class="text-muted"><i class="far fa-calendar"></i> 12 Jan 2026</small>
+                  <h5 class="card-title fw-bold mt-2"><a href="#" class="text-dark text-decoration-none">Kunjungan Industri ke Silicon Valley</a></h5>
+                  <p class="card-text text-muted small">Program studi Bisnis Digital melakukan studi banding ke markas besar Google dan Apple.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card news-card">
+                <div class="news-thumb">
+                  <span class="category-badge">Beasiswa</span>
+                  <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" />
+                </div>
+                <div class="card-body">
+                  <small class="text-muted"><i class="far fa-calendar"></i> 10 Jan 2026</small>
+                  <h5 class="card-title fw-bold mt-2"><a href="#" class="text-dark text-decoration-none">Penerimaan Beasiswa KIP-Kuliah 2026</a></h5>
+                  <p class="card-text text-muted small">Panduan lengkap dan syarat pendaftaran beasiswa untuk mahasiswa baru.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card news-card">
+                <div class="news-thumb">
+                  <span class="category-badge">UKM</span>2
+                  <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" />
+                </div>
+                <div class="card-body">
+                  <small class="text-muted"><i class="far fa-calendar"></i> 08 Jan 2026</small>
+                  <h5 class="card-title fw-bold mt-2"><a href="#" class="text-dark text-decoration-none">Konser Amal UKM Musik: Sound of Hope</a></h5>
+                  <p class="card-text text-muted small">Menggalang dana untuk korban bencana alam dengan penampilan band kampus.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <nav class="mt-5">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled"><a class="page-link" href="#">Prev</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="sidebar-sticky">
+            <div class="mb-4 search-box">
+              <input type="text" class="form-control" placeholder="Cari berita..." />
+              <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="announcement-card p-4 mb-4">
+              <h5 class="fw-bold mb-3"><i class="fas fa-bullhorn text-warning me-2"></i> Pengumuman</h5>
+
+              <div class="announcement-list">
+                <div class="announcement-item d-flex gap-3 align-items-start">
+                  <div class="date-box">
+                    <div style="font-size: 1.2rem">20</div>
+                    <div style="font-size: 0.7rem">JAN</div>
+                  </div>
+                  <div>
+                    <a href="#" class="fw-bold text-dark text-decoration-none" style="font-size: 0.95rem">Batas Akhir Pembayaran UKT Semester Genap</a>
+                  </div>
+                </div>
+
+                <div class="announcement-item d-flex gap-3 align-items-start">
+                  <div class="date-box">
+                    <div style="font-size: 1.2rem">25</div>
+                    <div style="font-size: 0.7rem">JAN</div>
+                  </div>
+                  <div>
+                    <a href="#" class="fw-bold text-dark text-decoration-none" style="font-size: 0.95rem">Jadwal Wisuda ke-35 Tahun 2026</a>
+                  </div>
+                </div>
+
+                <div class="announcement-item d-flex gap-3 align-items-start">
+                  <div class="date-box">
+                    <div style="font-size: 1.2rem">01</div>
+                    <div style="font-size: 0.7rem">FEB</div>
+                  </div>
+                  <div>
+                    <a href="#" class="fw-bold text-dark text-decoration-none" style="font-size: 0.95rem">Libur Nasional Tahun Baru Imlek</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-3">
+                <a href="#" class="btn btn-outline-primary btn-sm w-100 rounded-pill">Lihat Semua Pengumuman</a>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+              <img src="src/vr.jpg" class="img-fluid" />
+              <div class="card-body">
+                <h6 class="fw-bold">Virtual Tour Kampus</h6>
+                <p class="small text-muted mb-2">Lihat fasilitas lengkap ITB STIKOM Bali secara virtual.</p>
+                <a href="https://www.youtube.com/watch?v=UxJWh3znF2Y&t=144s" class="text-primary fw-bold text-decoration-none small">Tonton Video <i class="fas fa-play-circle"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #333; color: white; padding: 20px; text-align: center; margin-top: 50px; border-top: 2px dashed #999">(Area Footer Kamu)</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
