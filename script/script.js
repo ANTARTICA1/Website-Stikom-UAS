@@ -1,8 +1,21 @@
+// Logika Mobile Menu
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.querySelector(".nav-links");
+const menuItems = document.querySelectorAll(".menu-item");
 
+// Toggle Sidebar
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+
+// Toggle Dropdown di Mobile (Klik Text Menu)
+menuItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    if (window.innerWidth <= 968) {
+      item.classList.toggle("active");
+    }
+  });
 });
 
 const reveals = document.querySelectorAll(".reveal");
