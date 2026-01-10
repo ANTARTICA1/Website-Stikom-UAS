@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak Kami - ITB STIKOM Bali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+    <style>
+      :root {
+        --stikom-blue: #003366;
+        --stikom-light: #004d99;
+        --accent-cyan: #00d2ff;
+        --glass-bg: rgba(255, 255, 255, 0.95);
+        --font-main: "Inter", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-main);
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        background: #f0f2f5;
+        position: relative;
+      }
+
+      /* --- 1. MAP FULLSCREEN --- */
+      .map-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* --- 2. SIDEBAR FORM (KANAN - LEBIH MENARIK) --- */
+      .sidebar-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 480px;
+        height: 100%;
+        z-index: 10;
+        background: var(--glass-bg);
+        box-shadow: -10px 0 40px rgba(0, 51, 102, 0.15);
+        display: flex;
+        flex-direction: column;
+        transform: translateX(50px);
+        opacity: 0;
+        animation: slideInRight 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      /* Header Form dengan Gradasi */
+      .sidebar-header {
+        background: linear-gradient(135deg, var(--stikom-blue) 0%, var(--stikom-light) 100%);
+        padding: 40px;
+        color: white;
+        border-bottom-left-radius: 40px; /* Lengkungan estetis */
+        box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
+        position: relative;
+        z-index: 2;
+      }
+      .sidebar-title {
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin-bottom: 5px;
+        letter-spacing: -0.5px;
+      }
+      .sidebar-subtitle {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        font-weight: 400;
+      }
+
+      /* Area Form Scrollable */
+      .sidebar-body {
+        padding: 40px;
+        flex: 1;
+        overflow-y: auto;
+      }
+
+      /* Input Styling dengan Ikon */
+      .form-group {
+        margin-bottom: 25px;
+        position: relative;
+      }
+
+      .input-icon {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 1.2rem;
+        filter: grayscale(100%);
+        opacity: 0.5;
+        transition: 0.3s;
+      }
+
+      .custom-input {
+        width: 100%;
+        padding: 15px 15px 15px 45px; /* Padding kiri besar untuk ikon */
+        border: 2px solid #eee;
+        border-radius: 12px;
+        background: #f9f9f9;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: #333;
+        transition: all 0.3s ease;
+      }
+
+      .custom-input:focus {
+        outline: none;
+        background: white;
+        border-color: var(--stikom-blue);
+        box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1);
+      }
+
+      /* Ubah warna ikon saat input aktif */
+      .custom-input:focus + .input-icon,
+      .form-group:hover .input-icon {
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .input-label {
+        position: absolute;
+        left: 45px;
+        top: 16px;
+        color: #999;
+        font-size: 0.9rem;
+        pointer-events: none;
+        transition: 0.3s;
+        background: transparent;
+      }
+
+      /* Efek Floating Label */
+      .custom-input:focus ~ .input-label,
+      .custom-input:valid ~ .input-label {
+        top: -10px;
+        left: 10px;
+        font-size: 0.75rem;
+        background: white;
+        padding: 0 5px;
+        color: var(--stikom-blue);
+        font-weight: 700;
+      }
+
+      /* Tombol Kirim Modern */
+      .btn-send {
+        width: 100%;
+        padding: 16px;
+        border-radius: 12px;
+        background: linear-gradient(90deg, var(--stikom-blue), var(--stikom-light));
+        color: white;
+        border: none;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn-send:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 51, 102, 0.3);
+      }
+
+      /* --- 3. INFO CARD (DESKTOP) --- */
+      .info-card {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        z-index: 5;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        max-width: 380px;
+        border-left: 6px solid var(--stikom-blue);
+        animation: slideUp 0.8s 0.3s forwards ease-out;
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .info-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--stikom-blue);
+        margin-bottom: 12px;
+      }
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+      }
+      .info-icon {
+        font-size: 1.1rem;
+      }
+
+      /* --- 4. MOBILE TOGGLE BUTTON (New!) --- */
+      /* Tombol ini hanya muncul di HP untuk membuka info card */
+      .mobile-info-toggle {
+        display: none; /* Hidden di Desktop */
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        z-index: 20;
+        background: var(--stikom-blue);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        border: none;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+      }
+
+      /* Animasi */
+      @keyframes slideInRight {
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* --- RESPONSIVE MOBILE --- */
+      @media (max-width: 900px) {
+        /* Form jadi Bottom Sheet (Laci Bawah) */
+        .sidebar-overlay {
+          width: 100%;
+          height: 60vh; /* Hanya 60% layar */
+          top: auto;
+          bottom: 0;
+          border-radius: 30px 30px 0 0;
+          transform: translateY(100%); /* Mulai tersembunyi di bawah */
+          animation: slideUpPanel 0.8s forwards;
+        }
+        .sidebar-header {
+          padding: 25px;
+          border-radius: 0;
+          text-align: center;
+        }
+        .sidebar-body {
+          padding: 25px;
+        }
+
+        /* Sembunyikan Info Card Desktop */
+        .info-card {
+          display: none; /* Sembunyikan default */
+          bottom: 80px;
+          left: 20px;
+          right: 20px;
+          width: auto;
+          max-width: none;
+        }
+
+        /* Tampilkan Tombol Toggle Mobile */
+        .mobile-info-toggle {
+          display: flex;
+        }
+
+        /* State ketika Info Card muncul di HP */
+        .info-card.active {
+          display: block;
+          opacity: 1;
+          transform: translateY(0);
+          z-index: 30; /* Di atas segalanya */
+        }
+
+        /* Background gelap saat info card muncul */
+        .backdrop {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 25;
+        }
+        .backdrop.active {
+          display: block;
+        }
+
+        @keyframes slideUpPanel {
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="map-container">
+      <iframe src="https://maps.google.com/maps?q=ITB+STIKOM+Bali+Renon&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen> </iframe>
+    </div>
+
+    <button class="mobile-info-toggle" onclick="toggleInfo()">📍 Info Kampus</button>
+    <div class="backdrop" id="mobile-backdrop" onclick="toggleInfo()"></div>
+
+    <div class="info-card" id="info-card-box">
+      <div class="info-title">🏢 Kampus Pusat Renon</div>
+      <div class="info-item">
+        <span class="info-icon">📍</span>
+        <span>Jl. Raya Puputan No. 86, Renon<br />Denpasar Selatan, Bali</span>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">📞</span>
+        <span>(0361) 244445</span>
+      </div>
+      <div class="info-item">
+        <span class="info-icon">✉️</span>
+        <span>info@stikom-bali.ac.id</span>
+      </div>
+      <div style="text-align: right; margin-top: 10px; display: none" id="close-info-btn">
+        <small style="color: #999; cursor: pointer" onclick="toggleInfo()">Tutup ✕</small>
+      </div>
+    </div>
+
+    <div class="sidebar-overlay">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">Hubungi Kami</h1>
+        <p class="sidebar-subtitle">Tim akademik siap membantu pertanyaan Anda.</p>
+      </div>
+
+      <div class="sidebar-body">
+        <form>
+          <div class="form-group">
+            <input type="text" class="custom-input" required />
+            <div class="input-icon">👤</div>
+            <label class="input-label">Nama Lengkap</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="custom-input" required />
+            <div class="input-icon">📧</div>
+            <label class="input-label">Alamat Email</label>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="custom-input" required />
+            <div class="input-icon">📱</div>
+            <label class="input-label">Nomor WhatsApp</label>
+          </div>
+
+          <div class="form-group">
+            <textarea class="custom-input" rows="3" style="resize: none" required></textarea>
+            <div class="input-icon">💬</div>
+            <label class="input-label">Tulis Pesan Anda...</label>
+          </div>
+
+          <button type="button" class="btn-send">Kirim Pesan Sekarang</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Script Sederhana untuk Mobile Toggle Info
+      function toggleInfo() {
+        const card = document.getElementById("info-card-box");
+        const backdrop = document.getElementById("mobile-backdrop");
+        const closeBtn = document.getElementById("close-info-btn");
+
+        // Cek apakah layar sedang mode mobile (< 900px)
+        if (window.innerWidth <= 900) {
+          card.classList.toggle("active");
+          backdrop.classList.toggle("active");
+
+          // Tampilkan tombol tutup hanya di mobile
+          if (card.classList.contains("active")) {
+            closeBtn.style.display = "block";
+          } else {
+            closeBtn.style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
