@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Berita - ITB STIKOM Bali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <style>
+      /* --- VARIASI WARNA & RESET --- */
+      :root {
+        --stikom-blue: #003366;
+        --tech-cyan: #00d2ff;
+        --dark-text: #1a1a1a;
+        --light-gray: #f2f5f8;
+        --font-main: "Inter", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--light-gray);
+        color: var(--dark-text);
+        line-height: 1.7;
+      }
+
+      #progress-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: transparent;
+        z-index: 100;
+      }
+      #progress-bar {
+        height: 5px;
+        background: var(--tech-cyan);
+        width: 0%;
+        box-shadow: 0 0 15px var(--tech-cyan);
+      }
+
+      /* --- HERO SECTION --- */
+      .hero-section {
+        position: relative;
+        height: 70vh;
+        background-image: url("https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 51, 102, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 20px;
+        max-width: 1000px;
+        transform: translateY(-20px);
+      }
+      .hero-category {
+        background: var(--tech-cyan);
+        color: var(--stikom-blue);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: 800;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      .hero-title {
+        color: white;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        line-height: 1.2;
+        text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      /* --- LAYOUT UTAMA --- */
+      .main-container {
+        width: 90%;
+        max-width: 1600px;
+        margin: -80px auto 50px auto;
+        position: relative;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: 320px 1fr; /* Sidebar | Content Area */
+        gap: 50px;
+      }
+
+      /* --- SIDEBAR --- */
+      .sidebar {
+        position: sticky;
+        top: 50px;
+        align-self: start;
+      }
+      .sidebar-widget {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        border-left: 4px solid var(--stikom-blue);
+      }
+      .widget-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--stikom-blue);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+      .widget-title::before {
+        content: "#";
+        color: var(--tech-cyan);
+        margin-right: 5px;
+        font-size: 1.2em;
+      }
+
+      /* Widget Items */
+      .author-box {
+        display: flex;
+        align-items: center;
+      }
+      .author-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        object-fit: cover;
+      }
+      .author-info h4 {
+        font-size: 0.95rem;
+        margin-bottom: 2px;
+      }
+      .author-info span {
+        font-size: 0.8rem;
+        color: #888;
+      }
+
+      .related-news-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .related-news-item:hover .related-title {
+        color: var(--stikom-blue);
+      }
+      .related-thumb {
+        width: 70px;
+        height: 70px;
+        border-radius: 8px;
+        object-fit: cover;
+        background: #ddd;
+        flex-shrink: 0;
+      }
+      .related-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .related-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #333;
+      }
+      .related-date {
+        font-size: 0.75rem;
+        color: #999;
+        margin-top: 5px;
+      }
+
+      .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        background: #f0f7ff;
+        color: var(--stikom-blue);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: 0.2s;
+        cursor: pointer;
+      }
+      .tag:hover {
+        background: var(--stikom-blue);
+        color: var(--tech-cyan);
+      }
+
+      /* --- CONTENT AREA (KANAN) --- */
+      .content-area {
+        /* Area pembungkus artikel & komentar */
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .article-box {
+        background: white;
+        padding: 60px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .article-meta-top {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+      }
+      .lead-text {
+        font-size: 1.35rem;
+        font-weight: 500;
+        color: var(--stikom-blue);
+        margin-bottom: 40px;
+        line-height: 1.8;
+      }
+      .content-body p {
+        margin-bottom: 25px;
+        font-size: 1.1rem;
+        color: #333;
+        line-height: 1.8;
+      }
+      .content-body p:first-of-type::first-letter {
+        font-size: 3.5rem;
+        float: left;
+        margin-right: 15px;
+        line-height: 0.8;
+        color: var(--stikom-blue);
+        font-weight: 800;
+      }
+      .content-body h3 {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        color: #111;
+      }
+      .highlight-box {
+        border-left: 5px solid var(--tech-cyan);
+        background: #f8fdff;
+        padding: 30px;
+        margin: 30px 0;
+        border-radius: 0 10px 10px 0;
+        font-style: italic;
+        font-size: 1.15rem;
+        color: #444;
+      }
+
+      /* --- NEW: KOMENTAR SECTION --- */
+      .comment-section {
+        background: white;
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .comment-header {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--stikom-blue);
+        margin-bottom: 30px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .comment-count {
+        background: var(--tech-cyan);
+        color: var(--stikom-blue);
+        font-size: 0.8rem;
+        padding: 2px 8px;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+
+      /* Form Komentar */
+      .comment-form-box {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 50px;
+      }
+      .user-avatar-placeholder {
+        width: 50px;
+        height: 50px;
+        background: var(--stikom-blue);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        flex-shrink: 0;
+      }
+
+      .form-group {
+        flex: 1;
+      }
+      .comment-textarea {
+        width: 100%;
+        min-height: 100px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #eee;
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: 0.3s;
+        resize: vertical;
+      }
+      .comment-textarea:focus {
+        outline: none;
+        border-color: var(--stikom-blue);
+        box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1);
+      }
+
+      .btn-submit {
+        margin-top: 10px;
+        background: var(--stikom-blue);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        float: right;
+      }
+      .btn-submit:hover {
+        background: var(--tech-cyan);
+        color: var(--stikom-blue);
+      }
+
+      /* List Komentar */
+      .comment-item {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+        animation: fadeIn 0.5s ease;
+      }
+      .c-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .c-content {
+        flex: 1;
+      }
+
+      .c-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+      }
+      .c-name {
+        font-weight: 700;
+        color: #333;
+        margin-right: 10px;
+      }
+      .c-time {
+        font-size: 0.8rem;
+        color: #999;
+      }
+
+      .c-text {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+
+      .c-actions {
+        display: flex;
+        gap: 15px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .act-reply {
+        color: var(--stikom-blue);
+        cursor: pointer;
+      }
+      .act-like {
+        color: #888;
+        cursor: pointer;
+      }
+      .act-like:hover {
+        color: #e74c3c;
+      }
+
+      /* Indented Reply */
+      .comment-item.reply {
+        margin-left: 70px;
+        border-left: 3px solid #eee;
+        padding-left: 20px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .main-container {
+          width: 95%;
+          margin-top: -40px;
+          grid-template-columns: 1fr;
+        }
+        .sidebar {
+          position: relative;
+          top: 0;
+          order: 2;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .content-area {
+          order: 1;
+        }
+        .article-box,
+        .comment-section {
+          padding: 30px;
+        }
+      }
+      @media (max-width: 768px) {
+        .sidebar {
+          grid-template-columns: 1fr;
+        }
+        .comment-item.reply {
+          margin-left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <header class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-category">Technology & Innovation</span>
+        <h1 class="hero-title">Mahasiswa ITB STIKOM Bali Ciptakan Sistem AI untuk Optimalisasi Pertanian</h1>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <div class="widget-title">Penulis</div>
+          <div class="author-box">
+            <img src="https://i.pravatar.cc/100?img=12" alt="Author" class="author-img" />
+            <div class="author-info">
+              <h4>Budi Santoso, S.Kom</h4>
+              <span>Jurnalis Kampus</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-title">Baca Juga</div>
+          <div class="related-news-item">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=200" class="related-thumb" alt="News" />
+            <div class="related-content">
+              <div class="related-title">Tim Robotik Raih Emas di Jepang</div>
+              <div class="related-date">2 Hari yang lalu</div>
+            </div>
+          </div>
+          <div class="related-news-item">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200" class="related-thumb" alt="News" />
+            <div class="related-content">
+              <div class="related-title">Penerimaan Mahasiswa Baru 2026</div>
+              <div class="related-date">1 Minggu yang lalu</div>
+            </div>
+          </div>
+          <div class="related-news-item">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200" class="related-thumb" alt="News" />
+            <div class="related-content">
+              <div class="related-title">Penerimaan Mahasiswa Baru 2026</div>
+              <div class="related-date">1 Minggu yang lalu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="widget-title">Hot Topics</div>
+          <div class="tag-cloud">
+            <span class="tag">AI</span>
+            <span class="tag">Programming</span>
+            <span class="tag">Start-Up</span>
+            <span class="tag">IoT</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="content-area">
+        <article class="article-box">
+          <div class="article-meta-top">
+            <span>📅 10 Januari 2026</span>
+            <span>⏱️ 5 Menit Baca</span>
+            <span>👁️ 1.2k Dilihat</span>
+          </div>
+
+          <div class="lead-text">Sebuah terobosan baru di dunia agritech lahir dari tangan dingin mahasiswa ITB STIKOM Bali. Sistem berbasis Artificial Intelligence (AI) ini diklaim mampu meningkatkan hasil panen petani hingga 40%.</div>
+
+          <div class="content-body">
+            <p>
+              Denpasar – Tim riset mahasiswa dari Program Studi Sistem Komputer ITB STIKOM Bali berhasil mengembangkan sebuah perangkat IoT (Internet of Things) yang terintegrasi dengan kecerdasan buatan untuk memantau kondisi tanah dan
+              cuaca secara real-time di kawasan pertanian Bedugul.
+            </p>
+            <p>Proyek yang dinamakan "Smart-Tani Bali" ini bermula dari keresahan para petani lokal yang sering mengalami gagal panen akibat perubahan cuaca yang tidak menentu.</p>
+            <div class="highlight-box">"Teknologi ini bukan untuk menggantikan petani, tetapi memberdayakan mereka dengan data yang akurat agar hasil panen maksimal."</div>
+            <h3>Kolaborasi Teknologi</h3>
+            <p>
+              Ketua tim peneliti, Made Arya, menjelaskan bahwa sistem ini tidak hanya mengandalkan data sensor, tetapi juga mempelajari pola tanam tradisional Bali. Algoritma yang ditanamkan mampu membaca kelembaban tanah dengan akurasi
+              tinggi.
+            </p>
+            <p>Diharapkan pada akhir tahun 2026, sistem ini sudah bisa diadopsi secara luas di Bali, menjadikan Bali sebagai pionir pertanian berbasis teknologi cerdas di Indonesia.</p>
+          </div>
+        </article>
+
+        <section class="comment-section">
+          <div class="comment-header">Diskusi <span class="comment-count">3</span></div>
+
+          <div class="comment-form-box">
+            <div class="user-avatar-placeholder">U</div>
+            <div class="form-group">
+              <textarea class="comment-textarea" placeholder="Tulis pendapatmu tentang inovasi ini..."></textarea>
+              <button class="btn-submit">Kirim Komentar</button>
+            </div>
+          </div>
+
+          <div class="comments-list">
+            <div class="comment-item">
+              <img src="https://i.pravatar.cc/100?img=33" alt="User" class="c-img" />
+              <div class="c-content">
+                <div class="c-header">
+                  <span class="c-name">Dina Wulandari</span>
+                  <span class="c-time">2 Jam yang lalu</span>
+                </div>
+                <div class="c-text">Keren banget! Semoga alatnya bisa segera diproduksi massal. Petani di desa saya pasti butuh alat seperti ini untuk memantau cuaca.</div>
+                <div class="c-actions">
+                  <span class="act-reply">Balas</span>
+                  <span class="act-like">❤️ 12</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-item reply">
+              <img src="https://i.pravatar.cc/100?img=11" alt="User" class="c-img" />
+              <div class="c-content">
+                <div class="c-header">
+                  <span class="c-name">Admin STIKOM</span>
+                  <span class="c-time">1 Jam yang lalu</span>
+                </div>
+                <div class="c-text">Terima kasih kak Dina! Doakan semoga proses uji cobanya lancar ya.</div>
+                <div class="c-actions">
+                  <span class="act-reply">Balas</span>
+                  <span class="act-like">❤️ 5</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <img src="https://i.pravatar.cc/100?img=59" alt="User" class="c-img" />
+              <div class="c-content">
+                <div class="c-header">
+                  <span class="c-name">Rizky Developer</span>
+                  <span class="c-time">5 Jam yang lalu</span>
+                </div>
+                <div class="c-text">Penasaran sama stack teknologi yang dipake buat backend-nya, apakah pake Python atau Node.js ya? Salut buat tim risetnya! 🔥</div>
+                <div class="c-actions">
+                  <span class="act-reply">Balas</span>
+                  <span class="act-like">❤️ 28</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      window.onscroll = function () {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+      };
+    </script>
+  </body>
+</html>
