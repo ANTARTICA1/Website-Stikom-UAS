@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ITB STIKOM Bali</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -89,66 +91,86 @@
     </section>
 
     <!-- PROGRAM HIGHLIGHT -->
-    <section class="program reveal" id="program">
+
+    <section class="py-5 reveal" id="program">
       <div class="container">
-        <h2 class="section-title">Program Unggulan</h2>
-        <p class="section-desc">Program studi unggulan yang dirancang untuk menjawab kebutuhan industri digital masa kini.</p>
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Program Studi Unggulan</h2>
+          <p class="text-muted">Pilih masa depanmu di dunia digital bersama kami</p>
+        </div>
 
-        <div class="program-grid">
-          <div class="program-card">
-            <h3>Teknologi Informasi</h3>
-            <p>Fokus pada software engineering, jaringan, keamanan sistem, dan pengembangan aplikasi berbasis teknologi terbaru.</p>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-primary"><i class="fas fa-laptop-code fa-3x"></i></div>
+              <h5 class="fw-bold">Teknologi Informasi</h5>
+              <p class="small text-muted">Software Engineering & Network Security</p>
+            </div>
           </div>
-
-          <div class="program-card">
-            <h3>Desain Kreatif & UI/UX</h3>
-            <p>Mengembangkan kemampuan desain visual, multimedia, animasi, serta pengalaman pengguna berbasis digital.</p>
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-danger"><i class="fas fa-paint-brush fa-3x"></i></div>
+              <h5 class="fw-bold">Desain & Multimedia</h5>
+              <p class="small text-muted">UI/UX, Animasi & Desain Visual</p>
+            </div>
           </div>
-
-          <div class="program-card">
-            <h3>Bisnis Digital & Startup</h3>
-            <p>Membentuk jiwa entrepreneur digital melalui strategi bisnis, inovasi startup, dan pemasaran berbasis teknologi.</p>
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-success"><i class="fas fa-chart-line fa-3x"></i></div>
+              <h5 class="fw-bold">Bisnis Digital</h5>
+              <p class="small text-muted">E-Commerce, Startup & Digital Marketing</p>
+            </div>
           </div>
-
-          <div class="program-card">
-            <h3>Multimedia & Content Creation</h3>
-            <p>Produksi konten kreatif seperti video, animasi, dan media digital untuk industri kreatif.</p>
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-warning"><i class="fas fa-network-wired fa-3x"></i></div>
+              <h5 class="fw-bold">Sistem Komputer</h5>
+              <p class="small text-muted">IoT, Robotics & Hardware</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="campus-section reveal">
+    <section class="py-5 bg-light reveal" id="kampus">
       <div class="container">
-        <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem">Kampus ITB STIKOM Bali</h2>
-
-        <div class="campus-grid">
-          <div class="campus-card">
-            <img src="src/about-bg.png" />
-            <div class="campus-card-content">
-              <h3>ITB STIKOM Renon</h3>
-              <p>Kampus pusat dengan fasilitas lengkap dan lokasi strategis.</p>
+        <h2 class="fw-bold text-center mb-5 text-primary">Lokasi Kampus</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card card-custom h-100">
+              <img src="src/about-bg.png" class="campus-img" alt="Renon" />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kampus Renon</h5>
+                <p class="card-text small">Pusat kota Denpasar, fasilitas lengkap.</p>
+              </div>
             </div>
           </div>
 
-          <div class="campus-card">
-            <img src="src/abiansemal.png" />
-            <div class="campus-card-content">
-              <h3>ITB STIKOM Abiansemal</h3>
-              <p>Lingkungan asri yang mendukung proses belajar mengajar.</p>
+          <div class="col-md-4">
+            <div class="card card-custom h-100">
+              <img src="src/gedung-jimbaran.jpg" class="campus-img" alt="Jimbaran" />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kampus Jimbaran</h5>
+                <p class="card-text small">Dekat kawasan pariwisata internasional.</p>
+              </div>
             </div>
           </div>
 
-          <div class="campus-card">
-            <img src="src/gedung-jimbaran.jpg" />
-            <div class="campus-card-content">
-              <h3>ITB STIKOM Jimbaran</h3>
-              <p>Kampus modern dekat kawasan pariwisata dan industri kreatif.</p>
+          <div class="col-md-4">
+            <div class="card card-custom h-100">
+              <img src="src/abiansemal.png" class="campus-img" alt="Abiansemal" />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kampus Abiansemal</h5>
+                <p class="card-text small">Lingkungan asri dan kondusif.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- backToTop -->
+    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Top</button>
 
     <section class="campus-image" id="kampus">
       <img src="src/gedung.png" alt="Gedung ITB STIKOM Bali" />

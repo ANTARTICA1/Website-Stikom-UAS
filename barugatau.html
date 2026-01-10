@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITB STIKOM Bali - The First</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      /* --- 1. GLOBAL STYLE --- */
+      :root {
+        --primary: #0056b3;
+        --secondary: #00a8cc;
+        --accent: #ffcc00;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+        background-color: #f8f9fa;
+      }
+
+      /* --- 2. REVEAL ANIMATION (Request Kamu) --- */
+      /* .reveal {
+        position: relative;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 1.2s ease;
+      }
+
+      .reveal.active {
+        transform: translateY(0);
+        opacity: 1;
+      } */
+
+      /* --- 3. NAVBAR --- */
+      /* .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .nav-link {
+        font-weight: 600;
+        color: #333 !important;
+        margin: 0 10px;
+      }
+      .nav-link:hover {
+        color: var(--primary) !important;
+      } */
+
+      /* --- 4. HERO SECTION --- */
+      /* .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: -76px; /* Offset navbar height */
+      /* padding-top: 76px;
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        animation: fadeInDown 1s;
+      }
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s;
+      } */
+      */
+
+      /* --- 5. STIKOM CARDS & AWARDS ---
+      .card-custom {
+        border: none;
+        border-radius: 15px;
+        transition: 0.3s;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .card-custom:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2);
+      }
+
+      .campus-img {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+      } */
+
+      /* --- 6. FLOATING WIDGETS (BUTTONS) --- */
+      /* Chatbot */
+      #chat-circle {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--primary);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        border: none;
+        transition: 0.3s;
+      }
+      #chat-circle:hover {
+        transform: scale(1.1);
+      }
+
+      .chat-box {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 320px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none; /* Default Hidden */
+        overflow: hidden;
+      }
+      .chat-header {
+        background: var(--primary);
+        color: white;
+        padding: 15px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .chat-body {
+        padding: 20px;
+        height: 250px;
+        overflow-y: auto;
+        background: #f9f9f9;
+      }
+      .chat-input {
+        padding: 10px;
+        display: flex;
+        border-top: 1px solid #ddd;
+      }
+
+      /* Accessibility */
+      .accessibility-wrapper {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 1000;
+      }
+      .btn-access {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        background: var(--secondary);
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .access-menu {
+        display: none;
+        position: absolute;
+        bottom: 60px;
+        left: 0;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 60px;
+      }
+      .access-menu button {
+        width: 100%;
+        margin-bottom: 5px;
+        background: #eee;
+        border: none;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Back To Top */
+      #backToTop {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: none;
+        font-weight: bold;
+        display: none;
+        cursor: pointer;
+        z-index: 999;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* --- 7. ANIMATIONS --- */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <i class="fas fa-graduation-cap fa-2x text-primary"></i>
+          <span class="fw-bold text-dark">ITB STIKOM BALI</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#hero">Beranda</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+            <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+            <li class="nav-item"><a class="nav-link" href="#kampus">Kampus</a></li>
+            <li class="nav-item ms-2">
+              <a href="#program" class="btn btn-warning rounded-pill fw-bold px-4">Daftar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="hero">
+      <div class="container">
+        <h1>ITB STIKOM Bali</h1>
+        <p>Kampus Teknologi & Kreatif Berbasis Inovasi</p>
+        <a href="#about" class="btn btn-primary btn-lg rounded-pill px-5 shadow">Jelajahi Kampus</a>
+      </div>
+    </section>
+
+    <section class="py-5 reveal">
+      <div class="container">
+        <div class="row text-center g-4">
+          <div class="col-md-6">
+            <div class="p-4 bg-white rounded shadow-sm border-start border-5 border-primary">
+              <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+              <h3>The Best Education</h3>
+              <p class="text-muted">Penghargaan Mahakarya Indonesia</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-4 bg-white rounded shadow-sm border-start border-5 border-info">
+              <i class="fas fa-medal fa-3x text-warning mb-3"></i>
+              <h3>Best Brand Campus</h3>
+              <p class="text-muted">4 Tahun Berturut-turut</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light reveal" id="about">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4">
+            <h2 class="fw-bold text-primary">Tentang ITB STIKOM Bali</h2>
+            <p class="lead fst-italic">Institut Teknologi & Bisnis berbasis Inovasi Digital</p>
+            <p>Berawal dari kepedulian terhadap pesatnya perkembangan TIK, ITB STIKOM Bali resmi berdiri pada tahun 2002. Saat ini kami telah menjadi perguruan tinggi bertaraf internasional.</p>
+            <ul class="list-unstyled mt-3">
+              <li><i class="fas fa-check-circle text-success me-2"></i> Kurikulum berbasis Industri</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i> Dosen Praktisi Berpengalaman</li>
+              <li><i class="fas fa-check-circle text-success me-2"></i> Lingkungan Belajar Modern</li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="About" class="img-fluid rounded-4 shadow" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 reveal" id="program">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Program Studi Unggulan</h2>
+          <p class="text-muted">Pilih masa depanmu di dunia digital bersama kami</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-primary"><i class="fas fa-laptop-code fa-3x"></i></div>
+              <h5 class="fw-bold">Teknologi Informasi</h5>
+              <p class="small text-muted">Software Engineering & Network Security</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-danger"><i class="fas fa-paint-brush fa-3x"></i></div>
+              <h5 class="fw-bold">Desain & Multimedia</h5>
+              <p class="small text-muted">UI/UX, Animasi & Desain Visual</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-success"><i class="fas fa-chart-line fa-3x"></i></div>
+              <h5 class="fw-bold">Bisnis Digital</h5>
+              <p class="small text-muted">E-Commerce, Startup & Digital Marketing</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card card-custom h-100 p-4 text-center">
+              <div class="mb-3 text-warning"><i class="fas fa-network-wired fa-3x"></i></div>
+              <h5 class="fw-bold">Sistem Komputer</h5>
+              <p class="small text-muted">IoT, Robotics & Hardware</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light reveal" id="kampus">
+      <div class="container">
+        <h2 class="fw-bold text-center mb-5 text-primary">Lokasi Kampus</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card card-custom h-100">
+              <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="campus-img" alt="Renon" />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kampus Renon</h5>
+                <p class="card-text small">Pusat kota Denpasar, fasilitas lengkap.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-custom h-100">
+              <img src="https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="campus-img" alt="Jimbaran" />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kampus Jimbaran</h5>
+                <p class="card-text small">Dekat kawasan pariwisata internasional.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card card-custom h-100">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="campus-img" alt="Abiansemal" />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Kampus Abiansemal</h5>
+                <p class="card-text small">Lingkungan asri dan kondusif.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">ITB STIKOM Bali</h5>
+            <p class="small text-white-50">Kampus teknologi dan kreatif yang berfokus pada inovasi, digitalisasi, dan pengembangan SDM unggul.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">Kontak</h5>
+            <ul class="list-unstyled small text-white-50">
+              <li class="mb-2">📍 Bali, Indonesia</li>
+              <li class="mb-2">📞 (0361) 123456</li>
+              <li class="mb-2">✉️ info@stikom-bali.ac.id</li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">Social Media</h5>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
+              <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+              <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center small">&copy; 2026 ITB STIKOM Bali. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Top</button>
+
+    <button id="chat-circle">
+      <i class="fas fa-comment-dots"></i>
+    </button>
+    <div class="chat-box" id="chat-box">
+      <div class="chat-header">
+        Help Center
+        <span style="cursor: pointer" id="close-chat">&times;</span>
+      </div>
+      <div class="chat-body" id="chat-logs">
+        <div class="bg-light p-2 rounded mb-2 w-75">Halo! Ada yang bisa kami bantu seputar pendaftaran?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chat-input-text" class="form-control form-control-sm me-2" placeholder="Tulis pesan..." />
+        <button class="btn btn-primary btn-sm" onclick="kirimPesan()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <div class="accessibility-wrapper">
+      <div class="access-menu" id="accessMenu">
+        <button onclick="ubahZoom(0.1)">A+</button>
+        <button onclick="ubahZoom(-0.1)">A-</button>
+        <button onclick="resetZoom()">R</button>
+      </div>
+      <button class="btn-access" onclick="toggleAccess()">
+        <i class="fas fa-universal-access"></i>
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // 1. REVEAL ANIMATION (Ini yang bikin Program Studi muncul pelan-pelan)
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 150;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      // Panggil sekali saat load agar section atas langsung muncul
+      reveal();
+
+      // 2. CHATBOT LOGIC
+      const chatCircle = document.getElementById("chat-circle");
+      const chatBox = document.getElementById("chat-box");
+      const closeChat = document.getElementById("close-chat");
+
+      chatCircle.addEventListener("click", () => {
+        chatBox.style.display = "block";
+        chatCircle.style.display = "none";
+      });
+
+      closeChat.addEventListener("click", () => {
+        chatBox.style.display = "none";
+        chatCircle.style.display = "flex";
+      });
+
+      function kirimPesan() {
+        const input = document.getElementById("chat-input-text");
+        const logs = document.getElementById("chat-logs");
+        if (input.value.trim() !== "") {
+          // User Msg
+          logs.innerHTML += `<div class="bg-primary text-white p-2 rounded mb-2 w-75 ms-auto text-end">${input.value}</div>`;
+          input.value = "";
+          // Bot Reply
+          setTimeout(() => {
+            logs.innerHTML += `<div class="bg-light p-2 rounded mb-2 w-75">Terima kasih infonya! Admin kami akan segera membalas.</div>`;
+            logs.scrollTop = logs.scrollHeight;
+          }, 800);
+        }
+      }
+
+      // 3. ACCESSIBILITY LOGIC
+      let zoomLevel = 1;
+      function toggleAccess() {
+        const menu = document.getElementById("accessMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      }
+      function ubahZoom(amount) {
+        zoomLevel += amount;
+        document.body.style.zoom = zoomLevel;
+      }
+      function resetZoom() {
+        zoomLevel = 1;
+        document.body.style.zoom = 1;
+      }
+
+      // 4. BACK TO TOP
+      const btnTop = document.getElementById("backToTop");
+      window.onscroll = function () {
+        reveal(); // Panggil reveal juga disini
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          btnTop.style.display = "block";
+        } else {
+          btnTop.style.display = "none";
+        }
+      };
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
