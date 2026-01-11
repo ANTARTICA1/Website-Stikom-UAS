@@ -536,35 +536,74 @@ section:not(.hero):not(.campus-image) {
 }
 /* ========== FOOTER ===============*/
 /* Styling untuk Logo di Footer */
-.footer-logo {
-  max-height: 60px; /* Mengatur tinggi maksimal agar tidak kegedean */
-  width: auto; /* Lebar menyesuaikan otomatis */
-  display: block; /* Agar rapi */
+.footer-stikom {
+  background-color: #0b1120; /* Warna gelap premium */
+  color: #a0aec0;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Styling Efek Hover untuk Link & Sosmed di Footer */
-.social-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  color: white;
+/* Logo Kampus */
+.footer-logo {
+  height: 60px; /* Tinggi logo dipastikan konsisten */
+  width: auto;
+  margin-bottom: 20px;
+  /* Filter ini bikin logo jadi putih bersih. Hapus baris ini kalau logomu sudah berwarna */
+  filter: brightness(0) invert(1);
+}
+
+/* Judul Kolom (H5) */
+.footer-title {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+/* Link Menu */
+.footer-link {
+  color: #a0aec0;
   text-decoration: none;
+  display: block;
+  margin-bottom: 12px;
   transition: 0.3s;
 }
 
-.social-icon:hover {
-  background: var(--primary); /* Menggunakan warna biru stikom */
-  color: white;
-  transform: translateY(-3px);
+.footer-link:hover {
+  color: #38bdf8; /* Biru terang saat hover */
+  padding-left: 5px; /* Efek geser dikit */
 }
 
-footer a:hover {
-  color: white !important;
-  text-decoration: underline !important;
+/* Ikon Kontak */
+.contact-icon {
+  width: 25px;
+  color: #38bdf8;
+  text-align: center;
+}
+
+/* Tombol Sosmed */
+.social-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  margin: 0 5px;
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-btn:hover {
+  background: #007bff;
+  border-color: #007bff;
+  transform: translateY(-3px);
 }
 
 /* ======= BERITA PENDEK ======== */
