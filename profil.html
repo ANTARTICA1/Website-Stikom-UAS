@@ -642,20 +642,53 @@
       </div>
     </footer>
 
+    <!-- backToTop -->
+    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Top</button>
+
+    <button id="chat-circle">💬</button>
+
+    <div class="chat-box">
+      <div class="chat-box-header">
+        STIKOM Bali Assistant
+        <span class="chat-box-toggle">&times;</span>
+      </div>
+
+      <div class="chat-box-body">
+        <div class="chat-logs" id="chat-logs">
+          <div class="chat-msg bot">
+            Halo! Selamat datang di ITB STIKOM Bali. <br /><br />
+            Ada yang bisa saya bantu? Coba tanya tentang <b>jurusan</b>, <b>alamat</b>, atau <b>pendaftaran</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="chat-input-field" placeholder="Ketik pesan Anda..." />
+        <button type="button" class="chat-submit" id="chat-submit-btn">Kirim</button>
+      </div>
+    </div>
+
+    <div class="accessibility-wrapper">
+      <button class="accessibility-main" onclick="toggleAccess()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a2 2 0 100 4 2 2 0 000-4z" />
+          <path d="M4 7h16v2h-6v13h-2V9H4V7z" />
+        </svg>
+      </button>
+
+      <div class="accessibility-menu" id="accessMenu">
+        <button onclick="zoomIn()">A+</button>
+        <button onclick="zoomOut()">A-</button>
+        <button onclick="resetZoom()">A</button>
+      </div>
+    </div>
+
+    <script src="script/script.js"></script>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       // 1. Init AOS (Scroll Animation)
       AOS.init({ duration: 1000, once: true });
-
-      // 2. Logic Hamburger (Sesuai kode navbar kamu)
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.querySelector(".nav-links");
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-          hamburger.classList.toggle("active");
-        });
-      }
 
       // 3. LOGIC ANIMASI ANGKA BERJALAN (COUNTER UP)
       const counters = document.querySelectorAll(".counter-wrapper");

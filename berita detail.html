@@ -554,6 +554,47 @@
       </div>
     </main>
 
+    <!-- backToTop -->
+    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Top</button>
+
+    <button id="chat-circle">💬</button>
+
+    <div class="chat-box">
+      <div class="chat-box-header">
+        STIKOM Bali Assistant
+        <span class="chat-box-toggle">&times;</span>
+      </div>
+
+      <div class="chat-box-body">
+        <div class="chat-logs" id="chat-logs">
+          <div class="chat-msg bot">
+            Halo! Selamat datang di ITB STIKOM Bali. <br /><br />
+            Ada yang bisa saya bantu? Coba tanya tentang <b>jurusan</b>, <b>alamat</b>, atau <b>pendaftaran</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="chat-input-field" placeholder="Ketik pesan Anda..." />
+        <button type="button" class="chat-submit" id="chat-submit-btn">Kirim</button>
+      </div>
+    </div>
+
+    <div class="accessibility-wrapper">
+      <button class="accessibility-main" onclick="toggleAccess()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a2 2 0 100 4 2 2 0 000-4z" />
+          <path d="M4 7h16v2h-6v13h-2V9H4V7z" />
+        </svg>
+      </button>
+
+      <div class="accessibility-menu" id="accessMenu">
+        <button onclick="zoomIn()">A+</button>
+        <button onclick="zoomOut()">A-</button>
+        <button onclick="resetZoom()">A</button>
+      </div>
+    </div>
+
     <footer class="footer-stikom pt-5 pb-4 mt-auto">
       <div class="container">
         <div class="row gy-5 text-center text-lg-start">

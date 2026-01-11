@@ -3,26 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portal Berita ITB STIKOM Bali - Premium Look</title>
+    <title>Portal Berita ITB STIKOM Bali</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
 
     <style>
+      /* Tambahkan ini untuk memaksa elemen muncul jika script macet */
+      [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
       :root {
-        --stikom-blue: #004ea2; /* Biru Tua Utama */
-        --stikom-blue-light: #0062cc; /* Biru lebih terang untuk hover */
-        --stikom-gold: #ffc107; /* Kuning/Emas Aksen */
+        --stikom-blue: #004ea2;
+        --stikom-blue-light: #0062cc;
+        --stikom-gold: #ffc107;
         --text-dark: #2c3e50;
         --bg-light: #f8f9fa;
       }
 
       body {
         background-color: #fff;
-        /* Menggunakan font Inter agar lebih modern, fallback ke sans-serif */
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-family: "Inter", sans-serif;
         color: var(--text-dark);
+        overflow-x: hidden; /* Mencegah scroll horizontal akibat animasi */
       }
 
       a {
@@ -35,7 +42,6 @@
         position: relative;
         padding-bottom: 15px;
       }
-
       .section-title-wrapper::after {
         content: "";
         position: absolute;
@@ -56,7 +62,6 @@
         background-color: var(--stikom-gold);
         border-radius: 2px;
       }
-
       .section-title {
         font-weight: 800;
         font-size: 1.75rem;
@@ -71,21 +76,22 @@
       }
 
       /* Hero News (Kiri) */
+      /* Diubah menjadi block anchor agar bisa diklik */
       .hero-card {
+        display: block; /* Agar tag <a> berperilaku seperti div */
         position: relative;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        height: 450px; /* Tinggi tetap */
+        height: 450px;
+        text-decoration: none; /* Hilangkan garis bawah link */
       }
-
       .hero-card img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
-
       .hero-card:hover img {
         transform: scale(1.08);
       }
@@ -95,8 +101,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        /* Gradient lebih halus */
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
         padding: 3rem 2rem 2rem;
         color: white;
         z-index: 2;
@@ -114,12 +119,12 @@
         margin-bottom: 15px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       }
-
       .hero-title {
         font-size: 2rem;
         font-weight: 800;
         line-height: 1.2;
         margin-bottom: 1rem;
+        color: white;
       }
 
       /* Pengumuman Box (Kanan) */
@@ -132,7 +137,6 @@
         flex-direction: column;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
       }
-
       .announcement-header {
         padding: 1.2rem 1.5rem;
         background: var(--stikom-blue);
@@ -143,7 +147,6 @@
         align-items: center;
         gap: 10px;
       }
-
       .announcement-list-container {
         flex-grow: 1;
         overflow-y: auto;
@@ -155,17 +158,16 @@
         display: flex;
         gap: 15px;
         transition: all 0.3s ease;
+        cursor: pointer;
       }
-
       .anno-item-modern:hover {
         background-color: #fcfcfc;
-        padding-left: 1.8rem; /* Efek geser sedikit */
+        padding-left: 1.8rem;
       }
-
       .anno-icon-box {
         width: 40px;
         height: 40px;
-        background-color: rgba(0, 78, 162, 0.1); /* Biru transparan */
+        background-color: rgba(0, 78, 162, 0.1);
         color: var(--stikom-blue);
         border-radius: 8px;
         display: flex;
@@ -174,41 +176,33 @@
         font-size: 1.1rem;
         flex-shrink: 0;
       }
-
       .anno-item-modern:hover .anno-icon-box {
         background-color: var(--stikom-blue);
         color: var(--stikom-gold);
       }
 
-      /* --- SECTION 2: BERITA TERBARU (YANG DI-EDIT JADI MENARIK) --- */
+      /* --- SECTION 2: BERITA TERBARU --- */
       .latest-news-section {
         padding: 4rem 0;
       }
 
-      /* Container untuk item berita horizontal */
       .news-block-item {
         display: flex;
         background: white;
         border-radius: 12px;
         overflow: hidden;
         margin-bottom: 25px;
-        /* Shadow halus di awal */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
         border: 1px solid rgba(0, 0, 0, 0.05);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         position: relative;
         top: 0;
       }
-
-      /* EFEK HOVER YANG DIMINTA */
       .news-block-item:hover {
-        /* Mengangkat card */
         top: -7px;
-        /* Bayangan jadi lebih besar dan lembut */
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
         border-color: transparent;
       }
-
       .news-block-img {
         flex-shrink: 0;
         width: 300px;
@@ -216,15 +210,12 @@
         overflow: hidden;
         position: relative;
       }
-
       .news-block-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* Gambar zoom saat hover parent-nya */
         transition: transform 0.5s ease;
       }
-
       .news-block-item:hover .news-block-img img {
         transform: scale(1.1);
       }
@@ -236,14 +227,12 @@
         flex-direction: column;
         justify-content: center;
       }
-
       .news-meta {
         font-size: 0.85rem;
         color: #888;
         margin-bottom: 10px;
         font-weight: 600;
       }
-
       .news-meta i {
         color: var(--stikom-gold);
         margin-right: 5px;
@@ -257,8 +246,6 @@
         color: var(--text-dark);
         transition: color 0.3s;
       }
-
-      /* Judul berubah warna saat hover block */
       .news-block-item:hover .news-block-title {
         color: var(--stikom-blue-light);
       }
@@ -270,8 +257,6 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
-
-      /* Tombol baca selengkapnya yang muncul saat hover (opsional) */
       .read-more-indicator {
         opacity: 0;
         transform: translateX(-10px);
@@ -281,13 +266,12 @@
         font-size: 0.9rem;
         margin-top: 15px;
       }
-
       .news-block-item:hover .read-more-indicator {
         opacity: 1;
         transform: translateX(0);
       }
 
-      /* --- RESPONSIVE --- */
+      /* Responsive */
       @media (max-width: 991px) {
         .hero-card,
         .announcement-panel {
@@ -334,12 +318,9 @@
               <li><a href="prodiTI.html">Teknologi Informasi</a></li>
             </ul>
           </li>
-
           <li><a href="berita.html" class="active">Berita & Pengumuman</a></li>
-
           <li><a href="kontakme.html" class="btn-contact">Hubungi Kami</a></li>
         </ul>
-
         <div class="hamburger" id="hamburger">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -351,45 +332,53 @@
     <section class="top-section">
       <div class="container">
         <div class="row g-4">
-          <div class="col-lg-8">
-            <div class="hero-card">
+          <div class="col-lg-8" data-aos="fade-right" data-aos-duration="1000">
+            <a href="berita detail.html" class="hero-card">
               <img src="https://images.unsplash.com/photo-1592499599263-254098959790?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ITB STIKOM Bali Event" />
               <div class="hero-overlay">
                 <span class="category-tag">Highlight Utama</span>
                 <h2 class="hero-title">ITB STIKOM Bali Tuan Rumah Konferensi Teknologi Internasional 2026</h2>
                 <p class="lead mb-0 d-none d-md-block text-white-50">Menghadirkan pembicara dari 5 negara, membahas masa depan AI dan Cybersecurity di era Society 5.0.</p>
               </div>
-            </div>
+            </a>
           </div>
 
-          <div class="col-lg-4">
+          <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
             <div class="announcement-panel">
               <div class="announcement-header"><i class="fas fa-bullhorn me-2"></i> Papan Pengumuman</div>
               <div class="announcement-list-container">
-                <a href="#" class="anno-item-modern">
+                <div
+                  class="anno-item-modern"
+                  onclick="showAnnouncement('Batas Revisi KRS Genap', 'Diinformasikan kepada seluruh mahasiswa bahwa batas revisi KRS semester genap berakhir hari ini pukul 23:59 WITA. Harap segera menghubungi dosen wali jika ada kendala.')"
+                >
                   <div class="anno-icon-box"><i class="fas fa-calendar-check"></i></div>
                   <div>
                     <h6 class="fw-bold mb-1 text-dark">Batas Revisi KRS Genap</h6>
                     <p class="small text-muted mb-0">Hari ini terakhir pukul 23:59 WITA.</p>
                   </div>
-                </a>
-                <a href="#" class="anno-item-modern">
+                </div>
+
+                <div
+                  class="anno-item-modern"
+                  onclick="showAnnouncement('Info Pengambilan Toga', 'Pengambilan Toga untuk wisuda periode ke-30 dapat dilakukan di ruang BAAK mulai hari Senin depan, jam 09.00 - 15.00 WITA. Harap membawa bukti pembayaran wisuda.')"
+                >
                   <div class="anno-icon-box"><i class="fas fa-graduation-cap"></i></div>
                   <div>
                     <h6 class="fw-bold mb-1 text-dark">Info Pengambilan Toga</h6>
                     <p class="small text-muted mb-0">Jadwal pengambilan di BAAK mulai Senin depan.</p>
                   </div>
-                </a>
-                <a href="#" class="anno-item-modern">
+                </div>
+
+                <div
+                  class="anno-item-modern"
+                  onclick="showAnnouncement('Beasiswa Prestasi Dibuka', 'Pendaftaran Beasiswa Prestasi Akademik & Non-Akademik Yayasan Widya Dharma Shanti telah dibuka. Syarat IPK minimal 3.50. Silakan cek detail persyaratan di website kemahasiswaan.')"
+                >
                   <div class="anno-icon-box"><i class="fas fa-money-bill-wave"></i></div>
                   <div>
                     <h6 class="fw-bold mb-1 text-dark">Beasiswa Prestasi Dibuka</h6>
                     <p class="small text-muted mb-0">Cek syarat IPK minimum di website kemahasiswaan.</p>
                   </div>
-                </a>
-              </div>
-              <div class="p-3 text-center border-top bg-white rounded-bottom-4">
-                <a href="#" class="btn btn-outline-primary rounded-pill w-100 fw-bold">Lihat Semua Arsip</a>
+                </div>
               </div>
             </div>
           </div>
@@ -401,11 +390,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
-            <div class="section-title-wrapper">
+            <div class="section-title-wrapper" data-aos="fade-up">
               <h3 class="section-title">Berita Terbaru</h3>
             </div>
 
-            <a href="#" class="news-block-item">
+            <a href="berita detail.html" class="news-block-item" data-aos="fade-up" data-aos-delay="100">
               <div class="news-block-img">
                 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mahasiswa" />
               </div>
@@ -417,7 +406,7 @@
               </div>
             </a>
 
-            <a href="#" class="news-block-item">
+            <a href="berita detail.html" class="news-block-item" data-aos="fade-up" data-aos-delay="200">
               <div class="news-block-img">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Workshop" />
               </div>
@@ -429,7 +418,7 @@
               </div>
             </a>
 
-            <a href="#" class="news-block-item">
+            <a href="berita detail.html" class="news-block-item" data-aos="fade-up" data-aos-delay="300">
               <div class="news-block-img">
                 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kerjasama" />
               </div>
@@ -440,16 +429,12 @@
                 <div class="read-more-indicator">Baca Selengkapnya <i class="fas fa-arrow-right ms-2"></i></div>
               </div>
             </a>
-
-            <div class="text-center mt-5">
-              <button class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">Muat Berita Lainnya</button>
-            </div>
           </div>
 
           <div class="col-lg-4 mt-5 mt-lg-0">
-            <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4 sticky-top" style="top: 20px; z-index: 1">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4 sticky-top" style="top: 20px; z-index: 1" data-aos="fade-left" data-aos-delay="400">
               <div style="height: 200px; overflow: hidden">
-                <img src="src/vr.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Virtual Tour VR" />
+                <img src="src/vr.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Virtual Tour VR" onerror="this.src='https://images.unsplash.com/photo-1622979135228-5b1ed37a0168?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'" />
               </div>
               <div class="card-body p-4 bg-white">
                 <h5 class="fw-bold text-dark"><i class="fas fa-vr-cardboard me-2 text-primary"></i>Virtual Tour Kampus</h5>
@@ -458,7 +443,7 @@
               </div>
             </div>
 
-            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white p-4" style="margin-top: 30px">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white p-4" style="margin-top: 30px" data-aos="fade-left" data-aos-delay="500">
               <h6 class="fw-bold mb-3">Topik Populer</h6>
               <div class="d-flex flex-wrap gap-2">
                 <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#Pemrograman</a>
@@ -472,15 +457,55 @@
         </div>
       </div>
     </section>
+
+    <!-- backToTop -->
+    <button id="backToTop" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> Top</button>
+
+    <button id="chat-circle">💬</button>
+
+    <div class="chat-box">
+      <div class="chat-box-header">
+        STIKOM Bali Assistant
+        <span class="chat-box-toggle">&times;</span>
+      </div>
+
+      <div class="chat-box-body">
+        <div class="chat-logs" id="chat-logs">
+          <div class="chat-msg bot">
+            Halo! Selamat datang di ITB STIKOM Bali. <br /><br />
+            Ada yang bisa saya bantu? Coba tanya tentang <b>jurusan</b>, <b>alamat</b>, atau <b>pendaftaran</b>.
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="chat-input-field" placeholder="Ketik pesan Anda..." />
+        <button type="button" class="chat-submit" id="chat-submit-btn">Kirim</button>
+      </div>
+    </div>
+
+    <div class="accessibility-wrapper">
+      <button class="accessibility-main" onclick="toggleAccess()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2a2 2 0 100 4 2 2 0 000-4z" />
+          <path d="M4 7h16v2h-6v13h-2V9H4V7z" />
+        </svg>
+      </button>
+
+      <div class="accessibility-menu" id="accessMenu">
+        <button onclick="zoomIn()">A+</button>
+        <button onclick="zoomOut()">A-</button>
+        <button onclick="resetZoom()">A</button>
+      </div>
+    </div>
+
     <footer class="footer-stikom pt-5 pb-4 mt-auto">
       <div class="container">
         <div class="row gy-5 text-center text-lg-start">
           <div class="col-lg-4 col-md-12">
             <img src="src/logo.png" alt="Logo STIKOM" class="footer-logo mx-auto ms-lg-0 d-block" />
-
             <h5 class="text-white fw-bold">ITB STIKOM Bali</h5>
             <p class="small mb-4">Kampus IT terbaik di Bali yang mengedepankan inovasi dan kreativitas digital.</p>
-
             <div class="d-flex justify-content-center justify-content-lg-start">
               <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
               <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
@@ -488,7 +513,6 @@
               <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
-
           <div class="col-lg-2 col-md-4 col-6">
             <h6 class="footer-title">Navigasi</h6>
             <a href="#home" class="footer-link">Beranda</a>
@@ -496,7 +520,6 @@
             <a href="#prodi" class="footer-link">Prodi</a>
             <a href="#contact" class="footer-link">Kontak</a>
           </div>
-
           <div class="col-lg-2 col-md-4 col-6">
             <h6 class="footer-title">Akademik</h6>
             <a href="#" class="footer-link">E-Learning</a>
@@ -504,7 +527,6 @@
             <a href="#" class="footer-link">Perpus</a>
             <a href="#" class="footer-link">Karir</a>
           </div>
-
           <div class="col-lg-4 col-md-4">
             <h6 class="footer-title">Hubungi Kami</h6>
             <ul class="list-unstyled small">
@@ -523,9 +545,7 @@
             </ul>
           </div>
         </div>
-
         <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1)" />
-
         <div class="row align-items-center">
           <div class="col-md-6 text-center text-md-start">
             <p class="small mb-0">&copy; 2026 ITB STIKOM Bali. Hak Cipta Dilindungi.</p>
@@ -538,8 +558,68 @@
       </div>
     </footer>
 
+    <div class="modal fade" id="announcementModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title fw-bold" id="modalLabel"><i class="fas fa-info-circle me-2"></i> Detail Pengumuman</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <h4 class="fw-bold text-dark mb-3" id="modalTitle">Judul Pengumuman</h4>
+            <p class="text-muted" id="modalContent">Isi pengumuman akan muncul di sini.</p>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script/script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // 1. Inisialisasi Animasi AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // 2. Fungsi untuk menampilkan Pop-up Pengumuman Dinamis
+      function showAnnouncement(title, content) {
+        // Set Judul dan Isi Modal
+        document.getElementById("modalTitle").innerText = title;
+        document.getElementById("modalContent").innerText = content;
+
+        // Tampilkan Modal menggunakan Bootstrap API
+        var myModal = new bootstrap.Modal(document.getElementById("announcementModal"));
+        myModal.show();
+      }
+
+      // 3. Script Navbar (Sesuai original)
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      const menuItems = document.querySelectorAll(".menu-item");
+
+      if (hamburger) {
+        hamburger.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+          hamburger.classList.toggle("active");
+        });
+      }
+
+      menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          if (window.innerWidth <= 968) {
+            item.classList.toggle("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
