@@ -237,6 +237,12 @@ ul {
     transform: rotate(-45deg) translate(5px, -6px);
   }
 }
+
+.nav-links a.active {
+  color: #003366 !important; /* Warna Biru Utama */
+  font-weight: 700; /* Teks jadi tebal */
+}
+
 /* ========== HERO ========== */
 .hero {
   height: 100vh;
