@@ -874,6 +874,7 @@ body {
   line-height: 1.1;
   margin-bottom: 20px;
   background: linear-gradient(to right, #fff, #a5f3fc);
+  /* tulisan hero di profil */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

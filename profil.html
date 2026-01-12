@@ -138,11 +138,14 @@
         max-width: 1200px;
         margin: 0 auto;
         text-align: center;
+        padding: 0 16px; /* FIX overflow mobile */
+        box-sizing: border-box;
       }
 
       .stat-item {
         padding: 20px;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
+        box-sizing: border-box;
       }
       .stat-item:last-child {
         border-right: none;
@@ -153,6 +156,8 @@
         font-weight: 800;
         color: var(--p-gold);
         font-family: "Playfair Display", serif;
+        line-height: 1.2;
+        word-break: keep-all;
       }
 
       .stat-label {
@@ -161,6 +166,44 @@
         letter-spacing: 1px;
         margin-top: 5px;
         font-weight: 600;
+        line-height: 1.4;
+      }
+
+      /* =======================
+   RESPONSIVE FIX
+   TANPA HILANGIN EFEK
+   ======================= */
+
+      /* Tablet */
+      @media (max-width: 968px) {
+        .stats-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .stat-item {
+          border-right: none;
+        }
+
+        .counter-wrapper {
+          font-size: 2.8rem;
+        }
+      }
+
+      /* HP */
+      @media (max-width: 480px) {
+        .stats-container {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .counter-wrapper {
+          font-size: 2.4rem;
+        }
+
+        .stat-label {
+          font-size: 0.85rem;
+        }
       }
 
       /* --- 3. IDENTITY (VISI MISI) --- */
@@ -451,7 +494,6 @@
             <li><a href="prodiTI.html">Teknologi Informasi</a></li>
           </ul>
         </li>
-        <li><a href="prodi.html">Program Studi</a></li>
         <li><a href="berita.html">Berita & Pengumuman</a></li>
         <li><a href="kontakme.html" class="btn-contact">Hubungi Kami</a></li>
       </ul>
@@ -461,9 +503,7 @@
     <section class="profile-hero">
       <div class="hero-overlay"></div>
       <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
-        <span class="hero-badge">Since 2002</span>
-        <h1 class="hero-title">Creating Legacy.<br />Defining Future.</h1>
-        <p class="hero-desc">Transformasi pendidikan TIK terbaik di Bali Nusra. Memadukan kecanggihan teknologi global dengan kearifan lokal.</p>
+        <h1 class="hero-title">ALWAYS THE FIRST</h1>
       </div>
       <div class="scroll-down">
         <i class="fas fa-chevron-down text-white fa-2x"></i>
@@ -473,16 +513,16 @@
     <section class="stats-section">
       <div class="stats-container">
         <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
-          <div class="counter-wrapper" data-target="6500">0</div>
-          <div class="stat-label">Mahasiswa Aktif</div>
+          <div class="counter-wrapper" data-target="7000">0</div>
+          <div class="stat-label">Jumlah Mahasiswa</div>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-          <div class="counter-wrapper" data-target="8000">0</div>
-          <div class="stat-label">Alumni Sukses</div>
+          <div class="counter-wrapper" data-target="20000">0</div>
+          <div class="stat-label">Alumni</div>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-          <div class="counter-wrapper" data-target="40">0</div>
-          <div class="stat-label">Mitra Global</div>
+          <div class="counter-wrapper" data-target="500">0</div>
+          <div class="stat-label">Dosen Pengahar</div>
         </div>
         <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
           <div class="counter-wrapper" data-target="98">0</div>
@@ -498,27 +538,26 @@
             <span class="section-tag">Tentang Kami</span>
             <h2 class="section-title">Institut Teknologi & Bisnis (ITB) STIKOM Bali</h2>
             <p class="section-desc">
-              Hadir sebagai pionir pendidikan komputer di Bali sejak 10 Agustus 2002. Kami bertransformasi dari Sekolah Tinggi menjadi Institut untuk menjawab tantangan era digital dengan melahirkan lulusan yang tidak hanya jago coding,
-              tapi juga ahli bisnis.
+              STIKOM BALI mempunyai komitmen yang kuat untuk memuaskan kebutuhan semua stakeholder dengan mengimplementasikan Sistem Manajemen Mutu ISO 9001:2015 & Sistem Penjaminan Mutu Pendidikan Tinggi melalui perbaikan berlanjut.
             </p>
 
             <div class="vm-grid">
               <div class="vm-card">
                 <h4><i class="fas fa-eye"></i> Visi</h4>
-                <p>Menjadi perguruan tinggi unggulan dan berkualitas internasional di bidang IPTEKS pada tahun 2030.</p>
+                <p>Menjadi perguruan tinggi unggulan dan berkualitas Internasional di bidang ilmu pengetahuan, teknologi dan seni.</p>
               </div>
               <div class="vm-card">
                 <h4><i class="fas fa-rocket"></i> Misi</h4>
-                <p>Menyelenggarakan pendidikan profesional, penelitian inovatif, dan pengabdian masyarakat berbasis teknologi.</p>
+                <p>Berperan secara aktif dalam pengembangan di bidang ilmu pengetahuan, teknologi dan seni.</p>
               </div>
             </div>
           </div>
 
           <div class="identity-img" data-aos="fade-left">
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Kampus" />
+            <img src="src/gedung.png" alt="Kampus" />
             <div class="float-badge">
               <h4 style="margin: 0; font-size: 1.5rem">Terakreditasi</h4>
-              <h2 style="margin: 0; color: var(--p-gold)">UNGGUL</h2>
+              <h2 style="margin: 0; color: var(--p-gold)">BAIK</h2>
               <small>BAN-PT Nasional</small>
             </div>
           </div>
@@ -530,12 +569,13 @@
       <div class="container-custom">
         <div class="rector-box" data-aos="zoom-in">
           <div class="rector-img-col">
-            <img src="https://stikom-bali.ac.id/wp-content/uploads/2023/10/rektor-stikom-bali-dadang-hermawan.jpg" alt="Rektor" onerror="this.src='https://ui-avatars.com/api/?name=Dadang+Hermawan&size=500&background=003366&color=fff'" />
+            <img src="src/pak dadang.jpg" alt="Rektor" onerror="this.src='https://ui-avatars.com/api/?name=Dadang+Hermawan&size=500&background=003366&color=fff'" />
           </div>
           <div class="rector-content">
             <i class="fas fa-quote-left quote-icon"></i>
             <p class="quote-text">
-              "Kami memadukan kurikulum internasional dengan inkubator bisnis nyata. Mahasiswa tidak hanya belajar teori, tapi langsung membangun startup sejak semester awal. Ini komitmen kami mencetak 'The Next Digital Leaders'."
+              "Sebagai sebuah Sekolah Tinggi yang Pertama di Pulau Dewata, tentunya kami akan terus menerus melakukan peningkatan kualitas pendidikan, penelitian dan pengabdian pada masyarakat sesuai dengan tuntutan dan kebutuhan para pihak
+              yang berkaitan dengan kami,"
             </p>
             <div class="rector-name">
               <h4>Dr. Dadang Hermawan</h4>
@@ -553,23 +593,26 @@
 
         <div class="fac-grid">
           <div class="fac-item large" data-aos="fade-up">
-            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="Lab Mac" />
+            <img src="src/Picture7-3.jpg" alt="Lab Mac" />
             <div class="fac-overlay">
-              <h4>Laboratorium Multimedia</h4>
-              <p>iMac & Workstation High-End</p>
+              <h4>Ruang Podcast</h4>
             </div>
           </div>
           <div class="fac-item" data-aos="fade-up" data-aos-delay="100">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Coworking" />
-            <div class="fac-overlay"><h4>Inkubator Bisnis</h4></div>
+            <img src="src/ruang-kelas.jpg" alt="Coworking" />
+            <div class="fac-overlay"><h4>Ruang Kelas</h4></div>
           </div>
           <div class="fac-item tall" data-aos="fade-up" data-aos-delay="200">
-            <img src="https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Perpus" />
-            <div class="fac-overlay"><h4>E-Library Modern</h4></div>
+            <img src="src/networking-lab.jpg" alt="Perpus" />
+            <div class="fac-overlay"><h4>Laboratorium Networking</h4></div>
           </div>
           <div class="fac-item" data-aos="fade-up" data-aos-delay="300">
-            <img src="https://images.unsplash.com/photo-1558494949-efc5270f9c63?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Server" />
-            <div class="fac-overlay"><h4>Data Center</h4></div>
+            <img src="src/lab-bi.jpg" alt="Server" />
+            <div class="fac-overlay"><h4>Laboratorium Business Intelligence</h4></div>
+          </div>
+          <div class="fac-item" data-aos="fade-up" data-aos-delay="300">
+            <img src="src/mobile.jpg" alt="Server" />
+            <div class="fac-overlay"><h4>Laboratorium Mobile</h4></div>
           </div>
         </div>
       </div>
