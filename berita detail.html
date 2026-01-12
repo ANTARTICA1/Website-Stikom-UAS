@@ -690,26 +690,6 @@
         duration: 1000,
         once: true,
       });
-
-      // Script Navbar (Sesuai aslinya)
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.querySelector(".nav-links");
-      const menuItems = document.querySelectorAll(".menu-item");
-
-      if (hamburger) {
-        hamburger.addEventListener("click", () => {
-          navLinks.classList.toggle("active");
-          hamburger.classList.toggle("active");
-        });
-      }
-
-      menuItems.forEach((item) => {
-        item.addEventListener("click", () => {
-          if (window.innerWidth <= 968) {
-            item.classList.toggle("active");
-          }
-        });
-      });
     </script>
 
     <script src="script/script.js"></script>
