@@ -24,7 +24,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: inherit;
 }
 
@@ -1042,4 +1042,180 @@ body {
   .reversing-col {
     flex-direction: column-reverse;
   }
+}
+
+/* --- TAMBAHAN CSS UNTUK PENGUMUMAN MODERN --- */
+:root {
+  --stikom-blue: #004ea2;
+  --stikom-gold: #ffc107;
+}
+
+/* Box Utama Pengumuman */
+.announcement-panel {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  height: 100%; /* Menyesuaikan tinggi parent */
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+}
+
+/* Header Biru */
+.announcement-header {
+  padding: 1.2rem 1.5rem;
+  background: var(--stikom-blue);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+/* Container Scrollable */
+.announcement-list-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  background: #fff;
+}
+
+/* Item Pengumuman */
+.anno-item-modern {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  gap: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+.anno-item-modern:hover {
+  background-color: #fcfcfc;
+  padding-left: 1.8rem; /* Efek geser kanan dikit */
+}
+
+/* Ikon Box Kecil */
+.anno-icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 78, 162, 0.1);
+  color: var(--stikom-blue);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.anno-item-modern:hover .anno-icon-box {
+  background-color: var(--stikom-blue);
+  color: var(--stikom-gold);
+}
+
+/* Teks Judul & Deskripsi */
+.anno-title {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+.anno-desc {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* VISI MISI CSS */
+/* Warna Identitas STIKOM */
+.text-stikom {
+  color: #0056b3;
+}
+.bg-stikom {
+  background-color: #0056b3;
+}
+.border-stikom {
+  border-color: #0056b3;
+}
+
+/* Hero Section */
+.hero-banner {
+  background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 0, 0, 0.7)), url("https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  color: white;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: relative;
+}
+
+/* Card Styling */
+.card-custom {
+  border: none;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.card-custom:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 86, 179, 0.15);
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: #e3f2fd;
+  color: #0056b3;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Vision Section */
+.vision-box {
+  background: white;
+  border-left: 5px solid #0056b3;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-top: -80px; /* Overlapping effect */
+  position: relative;
+  z-index: 10;
+}
+
+/* List Styling */
+.custom-list li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 30px;
+}
+.custom-list li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  color: #28a745;
+}
+
+/* Footer Decoration */
+.divider {
+  height: 5px;
+  width: 80px;
+  background: #ffcc00; /* Aksen Kuning/Emas */
+  margin: 20px auto;
+  border-radius: 5px;
 }

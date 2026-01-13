@@ -10,310 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
-
-    <style>
-      /* --- HAPUS KODE YANG MEMAKSA OPACITY 1 AGAR ANIMASI JALAN --- */
-
-      :root {
-        --stikom-blue: #004ea2;
-        --stikom-blue-light: #0062cc;
-        --stikom-gold: #ffc107;
-        --text-dark: #2c3e50;
-        --bg-light: #f8f9fa;
-      }
-
-      body {
-        background-color: #fff;
-        font-family: "Inter", sans-serif;
-        color: var(--text-dark);
-        /* overflow-x: hidden;  <-- INI DIHAPUS AGAR ANIMASI TIDAK MACET (LAYAR PUTIH) */
-      }
-
-      a {
-        text-decoration: none;
-      }
-
-      /* --- STYLING JUDUL SECTION --- */
-      .section-title-wrapper {
-        margin-bottom: 2rem;
-        position: relative;
-        padding-bottom: 15px;
-      }
-      .section-title-wrapper::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 4px;
-        background-color: var(--stikom-blue);
-        border-radius: 2px;
-      }
-      .section-title-wrapper::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 65px;
-        width: 20px;
-        height: 4px;
-        background-color: var(--stikom-gold);
-        border-radius: 2px;
-      }
-      .section-title {
-        font-weight: 800;
-        font-size: 1.75rem;
-        margin: 0;
-        color: var(--text-dark);
-      }
-
-      /* --- SECTION 1: HERO & ANNOUNCEMENTS --- */
-      .top-section {
-        padding: 3rem 0;
-        background: linear-gradient(to bottom, var(--bg-light) 80%, white 100%);
-      }
-
-      /* Hero News (Kiri) */
-      .hero-card {
-        display: block;
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        height: 450px;
-        text-decoration: none;
-      }
-      .hero-card img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .hero-card:hover img {
-        transform: scale(1.08);
-      }
-
-      .hero-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
-        padding: 3rem 2rem 2rem;
-        color: white;
-        z-index: 2;
-      }
-
-      .category-tag {
-        background-color: var(--stikom-gold);
-        color: #000;
-        font-weight: 700;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        padding: 6px 14px;
-        border-radius: 30px;
-        display: inline-block;
-        margin-bottom: 15px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
-      .hero-title {
-        font-size: 2rem;
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 1rem;
-        color: white;
-      }
-
-      /* Pengumuman Box (Kanan) */
-      .announcement-panel {
-        background: white;
-        border-radius: 16px;
-        border: 1px solid #eee;
-        height: 450px;
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-      }
-      .announcement-header {
-        padding: 1.2rem 1.5rem;
-        background: var(--stikom-blue);
-        color: white;
-        font-weight: 700;
-        border-radius: 16px 16px 0 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .announcement-list-container {
-        flex-grow: 1;
-        overflow-y: auto;
-      }
-
-      .anno-item-modern {
-        padding: 1.2rem 1.5rem;
-        border-bottom: 1px solid #f0f0f0;
-        display: flex;
-        gap: 15px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-      .anno-item-modern:hover {
-        background-color: #fcfcfc;
-        padding-left: 1.8rem;
-      }
-      .anno-icon-box {
-        width: 40px;
-        height: 40px;
-        background-color: rgba(0, 78, 162, 0.1);
-        color: var(--stikom-blue);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        flex-shrink: 0;
-      }
-      .anno-item-modern:hover .anno-icon-box {
-        background-color: var(--stikom-blue);
-        color: var(--stikom-gold);
-      }
-
-      /* --- SECTION 2: BERITA TERBARU --- */
-      .latest-news-section {
-        padding: 4rem 0;
-      }
-
-      .news-block-item {
-        display: flex;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        position: relative;
-        top: 0;
-      }
-      .news-block-item:hover {
-        top: -7px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
-        border-color: transparent;
-      }
-      .news-block-img {
-        flex-shrink: 0;
-        width: 300px;
-        height: 200px;
-        overflow: hidden;
-        position: relative;
-      }
-      .news-block-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      .news-block-item:hover .news-block-img img {
-        transform: scale(1.1);
-      }
-
-      .news-block-content {
-        flex-grow: 1;
-        padding: 1.5rem 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .news-meta {
-        font-size: 0.85rem;
-        color: #888;
-        margin-bottom: 10px;
-        font-weight: 600;
-      }
-      .news-meta i {
-        color: var(--stikom-gold);
-        margin-right: 5px;
-      }
-
-      .news-block-title {
-        font-size: 1.4rem;
-        font-weight: 800;
-        margin-bottom: 12px;
-        line-height: 1.3;
-        color: var(--text-dark);
-        transition: color 0.3s;
-      }
-      .news-block-item:hover .news-block-title {
-        color: var(--stikom-blue-light);
-      }
-
-      .news-block-desc {
-        color: #666;
-        margin-bottom: 0;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .read-more-indicator {
-        opacity: 0;
-        transform: translateX(-10px);
-        transition: all 0.3s ease;
-        color: var(--stikom-blue);
-        font-weight: 700;
-        font-size: 0.9rem;
-        margin-top: 15px;
-      }
-      .news-block-item:hover .read-more-indicator {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      /* Responsive */
-      @media (max-width: 991px) {
-        .hero-card,
-        .announcement-panel {
-          height: auto;
-          min-height: 400px;
-          margin-bottom: 2rem;
-        }
-        .news-block-item {
-          flex-direction: column;
-        }
-        .news-block-img {
-          width: 100%;
-          height: 220px;
-        }
-        .news-block-content {
-          padding: 1.5rem;
-        }
-      }
-
-      /* --- TAMBAHAN KHUSUS TAMPILAN HP (PASTE DI PALING BAWAH) --- */
-      @media (max-width: 768px) {
-        /* Mengatur ulang ukuran font judul agar tidak raksasa di HP */
-        .hero-title {
-          font-size: 1.2rem !important; /* Ukuran font diperkecil */
-          line-height: 1.4;
-        }
-
-        /* Mengatur ulang posisi teks agar tidak menutupi seluruh gambar */
-        .hero-overlay {
-          padding: 1rem 1.2rem !important; /* Jarak teks ke pinggir diperkecil */
-          background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 80%, transparent 100%);
-        }
-
-        /* Mengatur ulang tinggi kotak gambar di HP */
-        .hero-card {
-          height: 300px !important; /* Tinggi disesuaikan agar tidak kepanjangan */
-        }
-
-        /* Mengatur ulang ukuran label kategori */
-        .category-tag {
-          font-size: 0.7rem;
-          padding: 4px 10px;
-          margin-bottom: 8px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="../css/berita.css" />
   </head>
   <body>
     <header>
@@ -361,7 +58,7 @@
               <div class="hero-overlay">
                 <span class="category-tag">Highlight Utama</span>
                 <h2 class="hero-title">ITB STIKOM Bali Terima Benchmarking IAHN Mpu Kuturan Terkait Tata Kelola Layanan Terpadu</h2>
-                <p class="lead mb-0 d-none d-md-block text-white-50">8 January 2026</p>
+                <p class="lead mb-0 d-none d-md-block text-white-50">8 Januari 2026</p>
               </div>
             </a>
           </div>
@@ -377,7 +74,7 @@
                 >
                   <div class="anno-icon-box"><i class="fas fa-calendar-alt"></i></div>
                   <div>
-                    <h6 class="fw-bold mb-1 text-dark">Pengumuman UAS Ganjil</h6>
+                    <h6 class="fw-bold mb-1 text-dark">Pengumuman UAS Ganjil dan Percepatan Genap 2025/2026</h6>
                     <p class="small text-muted mb-0">Mulai tanggal 21 s.d. 27 Januari 2026 sesuai jadwal kelas.</p>
                   </div>
                 </div>
@@ -388,7 +85,7 @@
                 >
                   <div class="anno-icon-box"><i class="fas fa-clipboard-list"></i></div>
                   <div>
-                    <h6 class="fw-bold mb-1 text-dark">Kuesioner PBM</h6>
+                    <h6 class="fw-bold mb-1 text-dark">Pengumuman Pengisian Kuesioner Proses Belajar Mengajar</h6>
                     <p class="small text-muted mb-0">Dimohon memberikan penilaian didalam kuesioner proses belajar mengajar.</p>
                   </div>
                 </div>
@@ -396,7 +93,7 @@
                 <div class="anno-item-modern" onclick="showAnnouncement('Jadwal Wisuda Periode 37', 'Wisuda periode 37 akan dilaksanakan pada tanggal 11 Februari 2026 bertempat di Aula ITB Stikom Bali.')">
                   <div class="anno-icon-box"><i class="fas fa-user-graduate"></i></div>
                   <div>
-                    <h6 class="fw-bold mb-1 text-dark">Info Wisuda XXXVII</h6>
+                    <h6 class="fw-bold mb-1 text-dark">Pengumuman Yudisium II Wisuda XXXVII</h6>
                     <p class="small text-muted mb-0">Pelaksanaan di Aula ITB Stikom Bali tanggal 11 Feb 2026.</p>
                   </div>
                 </div>

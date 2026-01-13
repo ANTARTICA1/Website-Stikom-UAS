@@ -1,0 +1,120 @@
+/* =============================
+   HISTORY SECTION
+============================= */
+.history-section {
+  /* GAMBAR BACKGROUND (Mundur 1 folder) */
+  background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url("../src/bg-sejarah.png") center/cover no-repeat;
+  padding-top: 120px !important;
+}
+
+/* =============================
+   TIMELINE
+============================= */
+.timeline {
+  position: relative;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #0d6efd;
+  transform: translateX(-50%);
+}
+
+/* =============================
+   ITEM SPACING
+============================= */
+.timeline .row {
+  margin-bottom: 140px; /* <<< KUNCI: 2 card per screen */
+}
+
+/* =============================
+   CARD
+============================= */
+.history-card {
+  background: #ffffff;
+  padding: 70px 80px; /* LEBIH BESAR DARI AWAL, TIDAK OVER */
+  border-radius: 28px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.14);
+}
+
+/* =============================
+   YEAR BADGE
+============================= */
+.year {
+  display: inline-block;
+  background: #0d6efd;
+  color: #fff;
+  padding: 10px 26px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+/* =============================
+   TYPOGRAPHY
+============================= */
+.history-card h3 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+.history-card p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 22px;
+}
+
+.history-card ul {
+  padding-left: 18px;
+}
+
+.history-card li {
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+/* =============================
+   REVEAL OPTIMIZATION
+============================= */
+.reveal {
+  will-change: transform, opacity;
+}
+
+/* =============================
+   MOBILE
+============================= */
+/* =============================
+   MOBILE
+============================= */
+@media (max-width: 991px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline .row {
+    margin-bottom: 90px;
+  }
+
+  /* PERBAIKAN: Tambahkan .timeline di depannya supaya Footer GAK KENA */
+  .timeline .row > div {
+    margin-left: 30px !important;
+  }
+
+  .history-card {
+    padding: 45px 40px;
+    border-radius: 22px;
+  }
+
+  .history-card h3 {
+    font-size: 1.5rem;
+  }
+}

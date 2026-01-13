@@ -1,0 +1,720 @@
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+  /* Warna dari Halaman Detail */
+  --stikom-navy: #003366;
+  --tech-cyan: #00d2ff;
+  --dark-text: #1a1a1a;
+  --light-gray: #f2f5f8;
+
+  /* Warna dari Halaman Menu */
+  --stikom-blue-primary: #004ea2;
+  --stikom-blue-light: #0062cc;
+  --stikom-gold: #ffc107;
+  --text-dark: #2c3e50;
+
+  /* Font */
+  --font-main: "Inter", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--light-gray);
+  color: var(--dark-text);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================
+   2. HERO SECTION (HALAMAN DETAIL BERITA)
+   ========================================= */
+/* Ini adalah settingan untuk HEADER BESAR di halaman detail */
+.hero-section {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0;
+  background-image: url("../src/web1.jpeg"); /* Default Image */
+}
+
+/* --- VARIASI BACKGROUND GAMBAR --- */
+.hero-bg-default {
+  background-image: url("../src/web1.jpeg");
+}
+.hero-bg-himatography {
+  background-image: url("../src/himatography.jpg");
+}
+.hero-bg-dance {
+  background-image: url("../src/dance.jpg");
+}
+.hero-bg-global {
+  background-image: url("../src/ti-global.jpeg");
+}
+
+/* Overlay Halaman Detail (Full Layar) */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 51, 102, 0.85) 0%, rgba(11, 17, 32, 0.9) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-category {
+  background: rgba(0, 210, 255, 0.15);
+  color: var(--tech-cyan);
+  border: 1px solid var(--tech-cyan);
+  padding: 6px 18px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  margin-bottom: 25px;
+  backdrop-filter: blur(5px);
+}
+
+/* JUDUL BESAR (Untuk Header Halaman Detail) */
+.hero-title {
+  color: white;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+}
+
+/* =========================================
+   3. LAYOUT BERITA DETAIL (Sidebar & Content)
+   ========================================= */
+.main-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 50px auto;
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+}
+
+.sidebar-widget {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  border-top: 4px solid var(--stikom-navy);
+  border-left: none;
+}
+
+.widget-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--stikom-navy);
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Components */
+.author-box {
+  display: flex;
+  align-items: center;
+}
+.author-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.related-news-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.related-news-item:hover .related-title {
+  color: var(--tech-cyan);
+}
+.related-thumb {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.related-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #333;
+}
+.related-date {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  background: #f0f7ff;
+  color: var(--stikom-navy);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: 0.2s;
+  text-decoration: none;
+}
+.tag:hover {
+  background: var(--stikom-navy);
+  color: white;
+}
+
+/* Content Area */
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0;
+}
+.article-box {
+  background: white;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+.article-meta-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+.lead-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--stikom-navy);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+.content-body p {
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.8;
+}
+.content-body h3 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+.highlight-box {
+  border-left: 4px solid var(--tech-cyan);
+  background: #f0fdff;
+  padding: 25px;
+  margin: 30px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+/* Komentar Section */
+.comment-section {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+.comment-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+.comment-count {
+  background: #e2e8f0;
+  color: #334155;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+.comment-form-box {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+.user-avatar-placeholder {
+  width: 45px;
+  height: 45px;
+  background: var(--stikom-navy);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.comment-textarea {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+}
+.btn-submit {
+  margin-top: 10px;
+  background: var(--stikom-navy);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  float: right;
+  transition: 0.3s;
+}
+.btn-submit:hover {
+  background: var(--tech-cyan);
+  color: var(--stikom-navy);
+}
+.comment-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+.c-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.c-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-right: 10px;
+}
+.c-time {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+.c-text {
+  font-size: 0.95rem;
+  color: #475569;
+  margin: 5px 0;
+}
+.c-actions span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 15px;
+  cursor: pointer;
+  color: #64748b;
+}
+.comment-item.reply {
+  margin-left: 60px;
+  border-left: 2px solid #e2e8f0;
+  padding-left: 15px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+/* =========================================
+   4. HALAMAN MENU (BERITA UTAMA/LIST)
+   ========================================= */
+
+.section-title-wrapper {
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 15px;
+}
+.section-title-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--stikom-blue-primary);
+  border-radius: 2px;
+}
+.section-title-wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 65px;
+  width: 20px;
+  height: 4px;
+  background-color: var(--stikom-gold);
+  border-radius: 2px;
+}
+.section-title {
+  font-weight: 800;
+  font-size: 1.75rem;
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.top-section {
+  padding: 3rem 0;
+  background: linear-gradient(to bottom, var(--light-gray) 80%, white 100%);
+}
+
+/* HERO CARD (KARTU MENU) */
+.hero-card {
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  height: 450px;
+  text-decoration: none;
+}
+.hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.hero-card:hover img {
+  transform: scale(1.08);
+}
+
+/* --- PERBAIKAN 1: Overlay Khusus Kartu --- */
+/* Menggunakan !important untuk menimpa settingan global */
+.hero-card .hero-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+  padding: 3rem 2rem 2rem;
+  color: white;
+  z-index: 2;
+  position: absolute;
+  top: auto !important; /* Reset Top */
+  bottom: 0 !important; /* Paksa di bawah */
+  left: 0;
+  right: 0;
+  height: auto !important; /* Jangan full screen */
+  width: 100%;
+}
+
+/* --- PERBAIKAN 2: Judul Khusus Kartu --- */
+/* Agar tidak ikut ukuran Raksasa milik Detail Page */
+.hero-card .hero-title {
+  font-size: 1.5rem !important; /* Ukuran normal untuk kartu */
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: none;
+}
+
+.category-tag {
+  background-color: var(--stikom-gold);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Announcement Box */
+.announcement-panel {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+.announcement-header {
+  padding: 1.2rem 1.5rem;
+  background: var(--stikom-blue-primary);
+  color: white;
+  font-weight: 700;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.announcement-list-container {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.anno-item-modern {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  gap: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.anno-item-modern:hover {
+  background-color: #fcfcfc;
+  padding-left: 1.8rem;
+}
+.anno-icon-box {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 78, 162, 0.1);
+  color: var(--stikom-blue-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.anno-item-modern:hover .anno-icon-box {
+  background-color: var(--stikom-blue-primary);
+  color: var(--stikom-gold);
+}
+
+/* Latest News Section */
+.latest-news-section {
+  padding: 4rem 0;
+}
+.news-block-item {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  top: 0;
+}
+.news-block-item:hover {
+  top: -7px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-color: transparent;
+}
+.news-block-img {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.news-block-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.news-block-item:hover .news-block-img img {
+  transform: scale(1.1);
+}
+.news-block-content {
+  flex-grow: 1;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.news-meta {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.news-meta i {
+  color: var(--stikom-gold);
+  margin-right: 5px;
+}
+.news-block-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  color: var(--text-dark);
+  transition: color 0.3s;
+}
+.news-block-item:hover .news-block-title {
+  color: var(--stikom-blue-light);
+}
+.news-block-desc {
+  color: #666;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+.read-more-indicator {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  color: var(--stikom-blue-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+.news-block-item:hover .read-more-indicator {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================================
+   5. RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 992px) {
+  /* Detail Page */
+  .main-container {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+  }
+  .sidebar {
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    position: static;
+  }
+  .content-area {
+    order: 1;
+  }
+  /* Menu Page */
+  .hero-card,
+  .announcement-panel {
+    height: auto;
+    min-height: 400px;
+    margin-bottom: 2rem;
+  }
+  .news-block-item {
+    flex-direction: column;
+  }
+  .news-block-img {
+    width: 100%;
+    height: 220px;
+  }
+  .news-block-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+  /* Judul Halaman Detail (Mobile) */
+  .hero-title {
+    font-size: 1.7rem !important;
+  }
+
+  .article-box,
+  .comment-section {
+    padding: 25px;
+  }
+
+  /* FIX Tampilan Kartu Menu di HP */
+  .hero-card .hero-overlay {
+    padding: 1rem 1.2rem !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 80%, transparent 100%);
+  }
+  .hero-card {
+    height: 300px !important;
+  }
+  /* Judul di dalam kartu HP diperkecil lagi */
+  .hero-card .hero-title {
+    font-size: 1.1rem !important;
+    line-height: 1.4;
+  }
+
+  .category-tag {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Ketebalan garis progress */
+  background: var(--tech-cyan); /* Warna garis (kuning emas agar kontras) */
+  z-index: 9999; /* Pastikan di atas segalanya (navbar/hero) */
+
+  /* Animasi Progress */
+  transform-origin: 0 50%; /* Mulai memanjang dari Kiri */
+  transform: scaleX(0); /* Awalnya 0 (kosong) */
+  animation: scroll-progress auto linear;
+  animation-timeline: scroll(); /* Fitur ajaib CSS modern */
+}
+
+/* Keyframe untuk mengubah ukuran dari 0 ke 1 (Full) */
+@keyframes scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
