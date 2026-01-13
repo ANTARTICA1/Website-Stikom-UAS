@@ -286,6 +286,33 @@
           padding: 1.5rem;
         }
       }
+
+      /* --- TAMBAHAN KHUSUS TAMPILAN HP (PASTE DI PALING BAWAH) --- */
+      @media (max-width: 768px) {
+        /* Mengatur ulang ukuran font judul agar tidak raksasa di HP */
+        .hero-title {
+          font-size: 1.2rem !important; /* Ukuran font diperkecil */
+          line-height: 1.4;
+        }
+
+        /* Mengatur ulang posisi teks agar tidak menutupi seluruh gambar */
+        .hero-overlay {
+          padding: 1rem 1.2rem !important; /* Jarak teks ke pinggir diperkecil */
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 80%, transparent 100%);
+        }
+
+        /* Mengatur ulang tinggi kotak gambar di HP */
+        .hero-card {
+          height: 300px !important; /* Tinggi disesuaikan agar tidak kepanjangan */
+        }
+
+        /* Mengatur ulang ukuran label kategori */
+        .category-tag {
+          font-size: 0.7rem;
+          padding: 4px 10px;
+          margin-bottom: 8px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -339,40 +366,38 @@
             </a>
           </div>
 
-          <div class="col-lg-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+          <div class="col-lg-4">
             <div class="announcement-panel">
               <div class="announcement-header"><i class="fas fa-bullhorn me-2"></i> Papan Pengumuman</div>
               <div class="announcement-list-container">
                 <div
                   class="anno-item-modern"
-                  onclick="showAnnouncement('Batas Revisi KRS Genap', 'Diinformasikan kepada seluruh mahasiswa bahwa batas revisi KRS semester genap berakhir hari ini pukul 23:59 WITA. Harap segera menghubungi dosen wali jika ada kendala.')"
+                  onclick="showAnnouncement(
+          'Pelaksanaan UAS Ganjil 2025/2026', 'Diberitahukan kepada seluruh mahasiswa bahwa Ujian Akhir Semester (UAS) Ganjil TA 2025/2026 akan dilaksanakan sesuai dengan jadwal akademik yang telah ditetapkan. Mahasiswa diharapkan mempersiapkan diri dengan baik, memastikan telah memenuhi seluruh persyaratan akademik, serta mengikuti ujian sesuai jadwal kelas.')"
                 >
-                  <div class="anno-icon-box"><i class="fas fa-calendar-check"></i></div>
+                  <div class="anno-icon-box"><i class="fas fa-calendar-alt"></i></div>
                   <div>
-                    <h6 class="fw-bold mb-1 text-dark">Batas Revisi KRS Genap</h6>
-                    <p class="small text-muted mb-0">Hari ini terakhir pukul 23:59 WITA.</p>
+                    <h6 class="fw-bold mb-1 text-dark">Pengumuman UAS Ganjil</h6>
+                    <p class="small text-muted mb-0">Mulai tanggal 21 s.d. 27 Januari 2026 sesuai jadwal kelas.</p>
                   </div>
                 </div>
 
                 <div
                   class="anno-item-modern"
-                  onclick="showAnnouncement('Info Pengambilan Toga', 'Pengambilan Toga untuk wisuda periode ke-30 dapat dilakukan di ruang BAAK mulai hari Senin depan, jam 09.00 - 15.00 WITA. Harap membawa bukti pembayaran wisuda.')"
+                  onclick="showAnnouncement('Pengisian Kuesioner PBM', 'Pengisian kuesioner proses belajar mengajar akan dilakukan oleh seluruh mahasiswa pada hari dan tanggal Senin, 22 Desember 2025 - Minggu, 04 Januari 2026. Dimohon kesediaannya untuk ikut memberikan penilaian.')"
                 >
-                  <div class="anno-icon-box"><i class="fas fa-graduation-cap"></i></div>
+                  <div class="anno-icon-box"><i class="fas fa-clipboard-list"></i></div>
                   <div>
-                    <h6 class="fw-bold mb-1 text-dark">Info Pengambilan Toga</h6>
-                    <p class="small text-muted mb-0">Jadwal pengambilan di BAAK mulai Senin depan.</p>
+                    <h6 class="fw-bold mb-1 text-dark">Kuesioner PBM</h6>
+                    <p class="small text-muted mb-0">Dimohon memberikan penilaian didalam kuesioner proses belajar mengajar.</p>
                   </div>
                 </div>
 
-                <div
-                  class="anno-item-modern"
-                  onclick="showAnnouncement('Beasiswa Prestasi Dibuka', 'Pendaftaran Beasiswa Prestasi Akademik & Non-Akademik Yayasan Widya Dharma Shanti telah dibuka. Syarat IPK minimal 3.50. Silakan cek detail persyaratan di website kemahasiswaan.')"
-                >
-                  <div class="anno-icon-box"><i class="fas fa-money-bill-wave"></i></div>
+                <div class="anno-item-modern" onclick="showAnnouncement('Jadwal Wisuda Periode 37', 'Wisuda periode 37 akan dilaksanakan pada tanggal 11 Februari 2026 bertempat di Aula ITB Stikom Bali.')">
+                  <div class="anno-icon-box"><i class="fas fa-user-graduate"></i></div>
                   <div>
-                    <h6 class="fw-bold mb-1 text-dark">Beasiswa Prestasi Dibuka</h6>
-                    <p class="small text-muted mb-0">Cek syarat IPK minimum di website kemahasiswaan.</p>
+                    <h6 class="fw-bold mb-1 text-dark">Info Wisuda XXXVII</h6>
+                    <p class="small text-muted mb-0">Pelaksanaan di Aula ITB Stikom Bali tanggal 11 Feb 2026.</p>
                   </div>
                 </div>
               </div>
@@ -447,8 +472,8 @@
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white p-4" style="margin-top: 30px" data-aos="fade-left" data-aos-delay="500">
               <h6 class="fw-bold mb-3">Topik Populer</h6>
               <div class="d-flex flex-wrap gap-2">
-                <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#Pemrograman</a>
-                <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#DesainGrafis</a>
+                <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#Kemahasiswaan</a>
+                <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#UnitKegiatanMahasiswa</a>
                 <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#Beasiswa2026</a>
                 <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#MagangMerdeka</a>
                 <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill">#Prestasi</a>
@@ -507,25 +532,25 @@
             <h5 class="text-white fw-bold">ITB STIKOM Bali</h5>
             <p class="small mb-4">Kampus IT terbaik di Bali yang mengedepankan inovasi dan kreativitas digital.</p>
             <div class="d-flex justify-content-center justify-content-lg-start">
-              <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-              <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.instagram.com/stikombali/" class="social-btn"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/STIKOM.Bali/" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.youtube.com/@STIKOMBalialwaysthefirst" class="social-btn"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.tiktok.com/@itbstikombali" class="social-btn"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-md-4 col-6">
             <h6 class="footer-title">Navigasi</h6>
-            <a href="#home" class="footer-link">Beranda</a>
-            <a href="#about" class="footer-link">Tentang</a>
-            <a href="#prodi" class="footer-link">Prodi</a>
-            <a href="#contact" class="footer-link">Kontak</a>
+            <a href="#" class="footer-link">Beranda</a>
+            <a href="profil.html" class="footer-link">Profil Institusi</a>
+            <a href="berita.html" class="footer-link">Berita</a>
+            <a href="kontakme.html" class="footer-link">Kontak</a>
           </div>
           <div class="col-lg-2 col-md-4 col-6">
             <h6 class="footer-title">Akademik</h6>
-            <a href="#" class="footer-link">E-Learning</a>
-            <a href="#" class="footer-link">Jurnal</a>
-            <a href="#" class="footer-link">Perpus</a>
-            <a href="#" class="footer-link">Karir</a>
+            <a href="https://elearning.stikom-bali.ac.id/" class="footer-link">E-Learning</a>
+            <a href="https://siap.stikom-bali.ac.id/" class="footer-link">Pendaftaran</a>
+            <a href="https://sion.stikom-bali.ac.id/login" class="footer-link">SION</a>
+            <a href="https://cdc.stikom-bali.ac.id/" class="footer-link">Karir</a>
           </div>
           <div class="col-lg-4 col-md-4">
             <h6 class="footer-title">Hubungi Kami</h6>

@@ -87,22 +87,30 @@ function getBotResponse(input) {
     <br>6. International Dual Degree`;
   }
 
-  if (val.includes("alamat") || val.includes("lokasi")) {
-    return "Kampus Pusat: <b>Jl. Raya Puputan No. 86 Renon, Denpasar</b>.";
+  // 2. LOGIC LOKASI (Sudah diupdate jadi 3 Kampus: Renon, Jimbaran, Abiansemal)
+  if (val.includes("alamat") || val.includes("lokasi") || val.includes("kampus")) {
+    return `Kami hadir di 3 lokasi strategis:
+    <br>1. <b>Kampus Renon (Pusat)</b>: Jl. Raya Puputan No. 86, Denpasar.
+    <br>2. <b>Kampus Jimbaran</b>: Jl. Raya Kampus Udayana, Jimbaran.
+    <br>3. <b>Kampus Abiansemal</b>: Jl. Janger Dauh Yeh Cani, Abiansemal, Badung.`;
   }
 
-  if (val.includes("daftar") || val.includes("pmb")) {
-    return "Pendaftaran: <a href='https://siap.stikom-bali.ac.id/' target='_blank'>SIAP STIKOM</a>";
+  // 3. LOGIC PENDAFTARAN (Versi Ramah & Informatif)
+  if (val.includes("daftar") || val.includes("pmb") || val.includes("gabung")) {
+    return "Wah, senang sekali Kakak tertarik bergabung! 🥰 Untuk pendaftaran mahasiswa baru. Silakan kunjungi portal PMB kami di: <a href='https://siap.stikom-bali.ac.id/' target='_blank'>SIAP STIKOM</a>. Kami tunggu kehadirannya di kampus ya!";
   }
 
-  if (val.includes("biaya") || val.includes("spp")) {
-    return "Info biaya tersedia di <a href='https://siap.stikom-bali.ac.id/' target='_blank'>website resmi</a>.";
+  // 4. LOGIC BIAYA (Versi Ramah & Informatif)
+  if (val.includes("biaya") || val.includes("spp") || val.includes("harga") || val.includes("uang")) {
+    return "Mengenai rincian biaya kuliah, Kami menyediakan informasi lengkap di website resmi. Silakan cek detailnya di sini: <a href='https://siap.stikom-bali.ac.id/' target='_blank'>Info Biaya Kuliah</a>.";
   }
 
-  if (val.includes("halo") || val.includes("hai")) {
+  // 5. LOGIC SAPAAN (Tetap, tidak dihapus)
+  if (val.includes("halo") || val.includes("hai") || val.includes("siang") || val.includes("pagi")) {
     return "Halo 👋 Ada yang bisa saya bantu?";
   }
 
+  // DEFAULT REPLY (Jika bot tidak mengerti)
   return "Maaf, pertanyaan belum saya pahami. Silakan hubungi (0361) 244445.";
 }
 

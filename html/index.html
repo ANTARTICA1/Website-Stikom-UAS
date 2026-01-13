@@ -141,13 +141,18 @@
       </nav>
     </header>
 
-    <section class="hero" id="hero">
-      <video src="../src/hero.mp4" autoplay muted loop></video>
-      <div class="hero-content">
-        <div>
-          <h1>ITB STIKOM Bali</h1>
-          <p>Kampus Teknologi & Kreatif Berbasis Inovasi</p>
-          <a href="profil.html" class="btn-primary">Jelajahi Kampus</a>
+    <section id="hero" class="position-relative vh-100 overflow-hidden">
+      <video src="../src/hero.mp4" autoplay muted loop class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" style="z-index: -1"></video>
+
+      <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50" style="z-index: 0"></div>
+
+      <div class="container h-100 position-relative" style="z-index: 1">
+        <div class="row h-100 justify-content-center align-items-center text-center">
+          <div class="col-lg-8 text-white">
+            <h1 class="display-3 fw-bold mb-3">ITB STIKOM Bali</h1>
+            <p class="lead mb-4">Kampus Teknologi & Kreatif Berbasis Inovasi</p>
+            <a href="profil.html" class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow"> Jelajahi Kampus </a>
+          </div>
         </div>
       </div>
     </section>
@@ -197,9 +202,9 @@
           </div>
           <div class="col-md-3">
             <div class="card card-custom h-100 p-4 text-center">
-              <div class="mb-3 text-danger"><i class="fas fa-paint-brush fa-3x"></i></div>
-              <h5 class="fw-bold">Desain & Multimedia</h5>
-              <p class="small text-muted">UI/UX, Animasi & Desain Visual</p>
+              <div class="mb-3 text-danger"><i class="fas fa-database fa-3x"></i></div>
+              <h5 class="fw-bold">Sistem Informasi</h5>
+              <p class="small text-muted">Big Data, Analisis Sistem & ERP</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -232,7 +237,7 @@
               <div class="col-md-6">
                 <div class="card news-card h-100 border-0 shadow-sm">
                   <div class="news-img-wrapper">
-                    <span class="date-badge">10 Jan</span>
+                    <span class="date-badge">8 Jan</span>
                     <img src="../src/web1.jpeg" alt="News 1" />
                   </div>
                   <div class="card-body">
@@ -245,13 +250,13 @@
               <div class="col-md-6">
                 <div class="card news-card h-100 border-0 shadow-sm">
                   <div class="news-img-wrapper">
-                    <span class="date-badge">08 Jan</span>
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News 2" />
+                    <span class="date-badge">19 Des</span>
+                    <img src="../src/dance.jpg" alt="News 2" />
                   </div>
                   <div class="card-body">
-                    <h5 class="fw-bold card-title h6">Seminar Internasional: AI Future in Bali</h5>
-                    <p class="card-text text-muted small">Menghadirkan pembicara dari Silicon Valley membahas AI...</p>
-                    <button class="btn btn-link p-0 text-decoration-none fw-bold" onclick="alert('Fitur demo')">Baca Selengkapnya <i class="fas fa-arrow-right small"></i></button>
+                    <h5 class="fw-bold card-title h6">Here We Go Again – Together We Shine: Charity Night UKM DOS</h5>
+                    <p class="card-text text-muted small">Mengusung tema “Here We Go Again – Together We Shine”, acara ini membawa pesan ajakan untuk bangkit bersama...</p>
+                    <a href="berita detail 3.html" class="btn btn-link p-0 text-decoration-none fw-bold"> Baca Selengkapnya <i class="fas fa-arrow-right small"></i> </a>
                   </div>
                 </div>
               </div>
@@ -264,34 +269,33 @@
               <div class="announcement-list-container">
                 <div
                   class="anno-item-modern"
-                  onclick="showAnnouncement('Jadwal Pengisian KRS Genap', 'Diberitahukan kepada seluruh mahasiswa bahwa pengisian Kartu Rencana Studi (KRS) untuk Semester Genap TA 2025/2026 dimulai pada tanggal 10 Januari s.d 20 Januari 2026. Silakan login ke SIAP dan konsultasi dengan Dosen Wali.')"
+                  onclick="showAnnouncement('Jadwal UAS Semester Ganjil', 'Diberitahukan kepada seluruh mahasiswa bahwa Ujian Akhir Semester (UAS) Ganjil TA 2025/2026 akan dilaksanakan sesuai dengan jadwal akademik yang telah ditetapkan. Mahasiswa diharapkan mempersiapkan diri dengan baik, memastikan telah memenuhi seluruh persyaratan akademik, serta mengikuti ujian sesuai jadwal kelas.')"
                 >
                   <div class="anno-icon-box"><i class="fas fa-calendar-alt"></i></div>
                   <div>
-                    <h6 class="anno-title">Jadwal Pengisian KRS</h6>
-                    <p class="anno-desc">Batas akhir 20 Januari 2026. Login ke SIAP sekarang.</p>
+                    <h6 class="anno-title">Pengumuman UAS Ganjil dan Percepatan Genap 2025/2026</h6>
+                    <p class="anno-desc">Mulai tanggal 21 s.d. 27 Januari 2026 sesuai dengan jadwal kelas.</p>
                   </div>
                 </div>
 
                 <div
                   class="anno-item-modern"
-                  onclick="showAnnouncement('Penerimaan Beasiswa Yayasan', 'Yayasan Widya Dharma Shanti kembali membuka pendaftaran beasiswa prestasi untuk mahasiswa aktif semester 3-5. Syarat IPK minimal 3.50. Pendaftaran ditutup tanggal 30 Januari 2026.')"
+                  onclick="showAnnouncement('Pengisian Kuesioner Proses Belajar Mengajar', 'Pengisian kuesioner proses belajar mengajar akan dilakukan oleh seluruh mahasiswa pada hari dan tanggal Senin, 22 Desember 2025 - Minggu, 04 Januari 2026. Dimohon kesediaannya untuk ikut memberikan penilaian didalam kuesioner proses belajar mengajar.')"
                 >
-                  <div class="anno-icon-box"><i class="fas fa-graduation-cap"></i></div>
+                  <div class="anno-icon-box">
+                    <i class="fas fa-clipboard-list"></i>
+                  </div>
                   <div>
-                    <h6 class="anno-title">Penerimaan Beasiswa</h6>
-                    <p class="anno-desc">Dibuka untuk mhs aktif smt 3-5. Syarat IPK 3.50.</p>
+                    <h6 class="anno-title">Pengumuman Pengisian Kuesioner Proses Belajar Mengajar</h6>
+                    <p class="anno-desc">Dimohon memberikan penilaian didalam kuesioner proses belajar mengajar</p>
                   </div>
                 </div>
 
-                <div
-                  class="anno-item-modern"
-                  onclick="showAnnouncement('Jadwal Wisuda Periode 30', 'Wisuda periode 30 akan dilaksanakan pada tanggal 15 Februari 2026 bertempat di Bali Nusa Dua Convention Center (BNDCC). Gladi resik dilaksanakan H-1 di lokasi yang sama.')"
-                >
+                <div class="anno-item-modern" onclick="showAnnouncement('Jadwal Wisuda Periode 37', 'Wisuda periode 37 akan dilaksanakan pada tanggal 11 Februari 2026 bertempat di Aula ITB Stikom Bali.')">
                   <div class="anno-icon-box"><i class="fas fa-user-graduate"></i></div>
                   <div>
-                    <h6 class="anno-title">Info Wisuda Periode 30</h6>
-                    <p class="anno-desc">Pelaksanaan di BNDCC tanggal 15 Feb 2026.</p>
+                    <h6 class="anno-title">Pengumuman Yudisium II Wisuda XXXVII</h6>
+                    <p class="anno-desc">Pelaksanaan di Aula ITB Stikom Bali tanggal 11 Feb 2026.</p>
                   </div>
                 </div>
               </div>
@@ -386,25 +390,25 @@
             <h5 class="text-white fw-bold">ITB STIKOM Bali</h5>
             <p class="small mb-4">Kampus IT terbaik di Bali yang mengedepankan inovasi dan kreativitas digital.</p>
             <div class="d-flex justify-content-center justify-content-lg-start">
-              <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-              <a href="#" class="social-btn"><i class="fab fa-tiktok"></i></a>
+              <a href="https://www.instagram.com/stikombali/" class="social-btn"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/STIKOM.Bali/" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.youtube.com/@STIKOMBalialwaysthefirst" class="social-btn"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.tiktok.com/@itbstikombali" class="social-btn"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-md-4 col-6">
             <h6 class="footer-title">Navigasi</h6>
-            <a href="index.html" class="footer-link">Beranda</a>
-            <a href="#about" class="footer-link">Tentang</a>
-            <a href="#prodi" class="footer-link">Prodi</a>
+            <a href="#" class="footer-link">Beranda</a>
+            <a href="profil.html" class="footer-link">Profil Institusi</a>
+            <a href="berita.html" class="footer-link">Berita</a>
             <a href="kontakme.html" class="footer-link">Kontak</a>
           </div>
           <div class="col-lg-2 col-md-4 col-6">
             <h6 class="footer-title">Akademik</h6>
-            <a href="#" class="footer-link">E-Learning</a>
-            <a href="#" class="footer-link">Jurnal</a>
-            <a href="#" class="footer-link">Perpus</a>
-            <a href="#" class="footer-link">Karir</a>
+            <a href="https://elearning.stikom-bali.ac.id/" class="footer-link">E-Learning</a>
+            <a href="https://siap.stikom-bali.ac.id/" class="footer-link">Pendaftaran</a>
+            <a href="https://sion.stikom-bali.ac.id/login" class="footer-link">SION</a>
+            <a href="https://cdc.stikom-bali.ac.id/" class="footer-link">Karir</a>
           </div>
           <div class="col-lg-4 col-md-4">
             <h6 class="footer-title">Hubungi Kami</h6>
