@@ -1219,3 +1219,46 @@ body {
   margin: 20px auto;
   border-radius: 5px;
 }
+
+/* --- TAMBAHAN RESPONSIVE STATISTIK --- */
+
+/* 1. Atur Garis Pembatas (Border) Secara Manual */
+.stat-item {
+  border-right: 1px solid #e2e8f0; /* Garis kanan default (abu muda) */
+}
+
+/* Hilangkan garis kanan pada elemen terakhir di Desktop */
+.stat-item:last-child {
+  border-right: none;
+}
+
+/* 2. Setting Khusus Layar HP (Mobile) */
+@media (max-width: 768px) {
+  /* Kecilkan ukuran font angka biar muat & rapi */
+  .stat-num {
+    font-size: 1.5rem !important; /* Pakai !important biar pasti berubah */
+    word-wrap: break-word; /* Jaga-jaga kalau teks kepanjangan */
+  }
+
+  /* Kecilkan label sedikit */
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* --- LOGIKA GARIS KOTAK-KOTAK (2x2) --- */
+
+  /* Item Ganjil (Kiri): Tetap pakai garis kanan */
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid #e2e8f0;
+  }
+
+  /* Item Genap (Kanan): Hapus garis kanan (biar gak nempel pinggir layar) */
+  .stat-item:nth-child(even) {
+    border-right: none;
+  }
+
+  /* Dua Item Teratas: Tambah garis bawah */
+  .stat-item:nth-child(-n + 2) {
+    border-bottom: 1px solid #e2e8f0;
+  }
+}
