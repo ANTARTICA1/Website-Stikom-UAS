@@ -1,8 +1,8 @@
+/* Anak Agung Ngurah Krisna Artha Wibawa 240040075 BB244 */
 /* =============================
    HISTORY SECTION
 ============================= */
 .history-section {
-  /* GAMBAR BACKGROUND (Mundur 1 folder) */
   background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94)), url("../src/bg-sejarah.png") center/cover no-repeat;
   padding-top: 120px !important;
 }
@@ -31,7 +31,7 @@
    ITEM SPACING
 ============================= */
 .timeline .row {
-  margin-bottom: 140px; /* <<< KUNCI: 2 card per screen */
+  margin-bottom: 140px;
 }
 
 /* =============================
@@ -39,7 +39,7 @@
 ============================= */
 .history-card {
   background: #ffffff;
-  padding: 70px 80px; /* LEBIH BESAR DARI AWAL, TIDAK OVER */
+  padding: 70px 80px;
   border-radius: 28px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.14);
 }
@@ -92,9 +92,7 @@
 /* =============================
    MOBILE
 ============================= */
-/* =============================
-   MOBILE
-============================= */
+
 @media (max-width: 991px) {
   .timeline::before {
     left: 20px;
@@ -104,7 +102,6 @@
     margin-bottom: 90px;
   }
 
-  /* PERBAIKAN: Tambahkan .timeline di depannya supaya Footer GAK KENA */
   .timeline .row > div {
     margin-left: 30px !important;
   }

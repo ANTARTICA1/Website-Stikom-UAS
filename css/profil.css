@@ -1,23 +1,21 @@
-/* =========================================
-           CUSTOM CSS PROFIL (TANPA BOOTSTRAP)
-           ========================================= */
+/* Anak Agung Ngurah Krisna Artha Wibawa 240040075 BB244 */
 
 :root {
-  --p-primary: #003366; /* Biru Utama */
-  --p-dark: #020617; /* Hitam Kebiruan */
-  --p-gold: #fbbf24; /* Emas Mewah */
-  --p-cyan: #06b6d4; /* Aksen Tech */
-  --p-gray: #f1f5f9; /* Background terang */
+  --p-primary: #003366;
+  --p-dark: #020617;
+  --p-gold: #fbbf24;
+  --p-cyan: #06b6d4;
+  --p-gray: #f1f5f9;
 }
 
 body {
   background-color: #fff;
-  padding-top: 90px; /* Jaga jarak navbar fixed */
+  padding-top: 90px;
   font-family: "Plus Jakarta Sans", sans-serif;
   overflow-x: hidden;
 }
 
-/* --- 1. HERO SECTION (PARALLAX) --- */
+/* --- 1. HERO SECTION --- */
 .profile-hero {
   position: relative;
   height: 85vh;
@@ -28,7 +26,6 @@ body {
   overflow: hidden;
   text-align: center;
   color: white;
-  /* Efek Parallax Background */
   background-image: url("../src/hero-profil.jpg");
   background-attachment: fixed;
   background-position: center;
@@ -123,7 +120,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  padding: 0 16px; /* FIX overflow mobile */
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
@@ -154,12 +151,6 @@ body {
   line-height: 1.4;
 }
 
-/* =======================
-       RESPONSIVE FIX
-       TANPA HILANGIN EFEK
-       ======================= */
-
-/* Tablet */
 @media (max-width: 968px) {
   .stats-container {
     grid-template-columns: repeat(2, 1fr);

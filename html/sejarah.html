@@ -1,3 +1,4 @@
+<!-- Anak Agung Ngurah Krisna Artha Wibawa 240040075 BB244 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -223,8 +224,7 @@
         (entries) => {
           entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-              // beri delay berdasarkan index elemen
-              entry.target.style.transitionDelay = `${index * 0.2}s`; // misal 0.2s per elemen
+              entry.target.style.transitionDelay = `${index * 0.2}s`;
               entry.target.classList.add("active");
               observer.unobserve(entry.target);
             }
@@ -236,7 +236,6 @@
       );
 
       document.querySelectorAll(".reveal").forEach((el, index) => {
-        // simpan index di dataset biar bisa dipakai di observer
         el.dataset.index = index;
         observer.observe(el);
       });

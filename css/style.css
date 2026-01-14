@@ -1,11 +1,9 @@
+/* Anak Agung Ngurah Krisna Artha Wibawa 240040075 BB244 */
 html {
-  /* Mengubah dasar 1rem di seluruh website */
   font-size: var(--page-font-size) !important;
 }
 
-/* Mengatasi inline style tanpa menimpa ukuran rem Bootstrap */
 [style*="font-size"] {
-  /* Ini akan mengalikan font-size inline dengan skala yang kita inginkan */
   font-size: inherit;
 }
 
@@ -44,7 +42,7 @@ body {
 
 /* ========== NAVBAR ========== */
 .navbar {
-  position: fixed; /* KUNCI BIAR NEMPEL TERUS */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -60,7 +58,6 @@ body {
   z-index: 1000;
   transition: all 0.3s ease;
 
-  /* PENTING: Beri tinggi pasti agar kita tahu berapa padding body yang butuh */
   height: 90px;
 }
 
@@ -70,7 +67,7 @@ ul {
 
 /* LOGO (Kiri) */
 .logo img {
-  height: 45px; /* Sesuaikan ukuran logo */
+  height: 45px;
   width: auto;
   display: block;
 }
@@ -127,7 +124,6 @@ ul {
   padding: 10px 0;
 }
 
-/* Tampilkan saat dihover */
 .nav-links li:hover .dropdown {
   opacity: 1;
   visibility: visible;
@@ -153,7 +149,7 @@ ul {
 /* --- 4. TOMBOL KONTAK (Spesial) --- */
 .btn-contact {
   background: var(--stikom-blue);
-  color: white !important; /* Force warna putih */
+  color: white !important;
   padding: 10px 25px;
   border-radius: 50px;
   transition: 0.3s;
@@ -222,12 +218,10 @@ ul {
     border-radius: 5px;
   }
 
-  /* Tampilkan submenu di HP jika parent diklik */
   .nav-links li.active .dropdown {
     display: block;
   }
 
-  /* Animasi Hamburger Silang (X) */
   .hamburger.active .bar:nth-child(1) {
     transform: rotate(45deg) translate(5px, 6px);
   }
@@ -240,8 +234,8 @@ ul {
 }
 
 .nav-links a.active {
-  color: #003366 !important; /* Warna Biru Utama */
-  font-weight: 700; /* Teks jadi tebal */
+  color: #003366 !important;
+  font-weight: 700;
 }
 
 /* ========== HERO ========== */
@@ -395,10 +389,10 @@ section:not(.hero):not(.campus-image) {
 
 /* KAMPUS */
 .campus-img {
-  width: 100%; /* Lebar memenuhi kartu */
-  height: 250px; /* Tinggi dipaksa sama (bisa diubah angkanya) */
-  object-fit: cover; /* PENTING: Agar gambar dipotong rapi, tidak gepeng */
-  object-position: center; /* Fokus gambar di tengah */
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ========== FOOTER IMAGE ========== */
@@ -426,23 +420,20 @@ section:not(.hero):not(.campus-image) {
 /* ===== AWARD SECTION (GAMBAR FULL) ===== */
 .award-section {
   padding: 60px 0;
-  background-color: #ffffff; /* Bisa diganti transparent jika mau ikut background body */
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .award-full-img {
-  max-width: 100%; /* Agar gambar mengecil otomatis di HP */
-  height: auto; /* Menjaga proporsi gambar */
+  max-width: 100%;
+  height: auto;
   display: inline-block;
-
-  /* Opsional: Biar gambar agak keren dikit */
   filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
   transition: transform 0.3s ease;
 }
 
-/* Efek saat gambar disentuh mouse (opsional) */
 .award-full-img:hover {
   transform: scale(1.02);
 }
@@ -469,7 +460,6 @@ section:not(.hero):not(.campus-image) {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* menu opsi (AWALNYA SEMBUNYI) */
 .accessibility-menu {
   display: none;
   flex-direction: column;
@@ -478,7 +468,6 @@ section:not(.hero):not(.campus-image) {
   align-items: center;
 }
 
-/* menu muncul SETELAH klik */
 .accessibility-menu.show {
   display: flex;
 }
@@ -495,9 +484,8 @@ section:not(.hero):not(.campus-image) {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 /* ========== FOOTER ===============*/
-/* Styling untuk Logo di Footer */
 .footer-stikom {
-  background-color: #0b1120; /* Warna gelap premium */
+  background-color: #0b1120;
   color: #a0aec0;
   font-family: "Segoe UI", sans-serif;
   position: relative;
@@ -506,10 +494,9 @@ section:not(.hero):not(.campus-image) {
 
 /* Logo Kampus */
 .footer-logo {
-  height: 60px; /* Tinggi logo dipastikan konsisten */
+  height: 60px;
   width: auto;
   margin-bottom: 20px;
-  /* Filter ini bikin logo jadi putih bersih. Hapus baris ini kalau logomu sudah berwarna */
   filter: brightness(0) invert(1);
 }
 
@@ -533,8 +520,8 @@ section:not(.hero):not(.campus-image) {
 }
 
 .footer-link:hover {
-  color: #38bdf8; /* Biru terang saat hover */
-  padding-left: 5px; /* Efek geser dikit */
+  color: #38bdf8;
+  padding-left: 5px;
 }
 
 /* Ikon Kontak */
@@ -567,7 +554,6 @@ section:not(.hero):not(.campus-image) {
 }
 
 /* ======= BERITA PENDEK ======== */
-/* --- NEWS & ANNOUNCEMENT --- */
 .news-img-wrapper {
   position: relative;
   height: 200px;
@@ -637,7 +623,7 @@ section:not(.hero):not(.campus-image) {
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  background: #003366; /* Warna khas STIKOM */
+  background: #003366;
   border: none;
   color: white;
   font-size: 30px;
@@ -747,22 +733,8 @@ section:not(.hero):not(.campus-image) {
 
 /* CSS UNTUK PRODI */
 /* =========================================
-   STYLE KHUSUS PRODI (THEME SYSTEM) - FIXED
-   ========================================= */
-
-/* =========================================
-   STYLE KHUSUS PRODI (SINGLE BLUE THEME)
-   ========================================= */
-
-/* =========================================
-STYLE GABUNGAN PRODI (TI, SI, SK)
-   ========================================= */
-
-/* =========================================
    STYLE PRODI GABUNGAN (FINAL FIXED)
    ========================================= */
-
-/* --- 1. FIX NAVBAR (Wajib Ada) --- */
 
 body {
   padding-top: 90px;
@@ -781,14 +753,8 @@ body {
 .prodi-hero {
   position: relative;
   display: block !important;
-
-  /* Jarak atas dikurangi sedikit biar konten naik */
   padding-top: 130px;
-
-  /* PADDING BAWAH DIKECILKAN (Dari 350px jadi 220px) */
-  /* Ini yang bikin Hero terlihat lebih pendek/kecil */
   padding-bottom: 270px !important;
-
   background: linear-gradient(135deg, #001529 0%, #003366 100%);
   color: white;
   border-bottom-right-radius: 80px;
@@ -848,7 +814,6 @@ body {
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  /* Di Desktop tidak perlu margin top tambahan */
   margin-top: 0;
 }
 .acc-icon {
@@ -862,11 +827,7 @@ body {
 .info-panel {
   background: white;
   padding: 40px 0;
-
-  /* Naik ke atas 120px masuk ke area biru */
-  /* Karena padding-bottom hero 350px, SISA JARAK = 230px (Sangat Aman) */
   margin-top: -100px !important;
-
   position: relative;
   z-index: 50;
   border-radius: 20px;
@@ -1015,13 +976,11 @@ body {
    SETTING KHUSUS LAYAR HP / TABLET (MOBILE)
    ========================================= */
 @media (max-width: 991px) {
-  /* 1. Kurangi padding Hero di HP supaya tidak terlalu kosong */
   .prodi-hero {
     padding-bottom: 100px !important;
     padding-top: 120px;
   }
 
-  /* 2. HAPUS overlap di HP. Kotak panel tempel di bawah saja */
   .info-panel {
     margin-top: 0 !important;
     width: 100%;
@@ -1034,7 +993,6 @@ body {
     font-size: 2.5rem;
   }
 
-  /* 3. Kartu Akreditasi kasih jarak atas biar gak nempel teks */
   .acc-glass {
     margin-top: 40px;
   }
@@ -1044,18 +1002,16 @@ body {
   }
 }
 
-/* --- TAMBAHAN CSS UNTUK PENGUMUMAN MODERN --- */
 :root {
   --stikom-blue: #004ea2;
   --stikom-gold: #ffc107;
 }
 
-/* Box Utama Pengumuman */
 .announcement-panel {
   background: white;
   border-radius: 16px;
   border: 1px solid #eee;
-  height: 100%; /* Menyesuaikan tinggi parent */
+  height: 100%;
   min-height: 450px;
   display: flex;
   flex-direction: column;
@@ -1063,7 +1019,6 @@ body {
   overflow: hidden;
 }
 
-/* Header Biru */
 .announcement-header {
   padding: 1.2rem 1.5rem;
   background: var(--stikom-blue);
@@ -1075,7 +1030,6 @@ body {
   font-size: 1.1rem;
 }
 
-/* Container Scrollable */
 .announcement-list-container {
   flex-grow: 1;
   overflow-y: auto;
@@ -1095,7 +1049,7 @@ body {
 
 .anno-item-modern:hover {
   background-color: #fcfcfc;
-  padding-left: 1.8rem; /* Efek geser kanan dikit */
+  padding-left: 1.8rem;
 }
 
 /* Ikon Box Kecil */
@@ -1133,7 +1087,6 @@ body {
 }
 
 /* VISI MISI CSS */
-/* Warna Identitas STIKOM */
 .text-stikom {
   color: #0056b3;
 }
@@ -1191,7 +1144,7 @@ body {
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  margin-top: -80px; /* Overlapping effect */
+  margin-top: -80px;
   position: relative;
   z-index: 10;
 }
@@ -1215,49 +1168,41 @@ body {
 .divider {
   height: 5px;
   width: 80px;
-  background: #ffcc00; /* Aksen Kuning/Emas */
+  background: #ffcc00;
   margin: 20px auto;
   border-radius: 5px;
 }
 
 /* --- TAMBAHAN RESPONSIVE STATISTIK --- */
 
-/* 1. Atur Garis Pembatas (Border) Secara Manual */
 .stat-item {
-  border-right: 1px solid #e2e8f0; /* Garis kanan default (abu muda) */
+  border-right: 1px solid #e2e8f0;
 }
 
-/* Hilangkan garis kanan pada elemen terakhir di Desktop */
 .stat-item:last-child {
   border-right: none;
 }
 
-/* 2. Setting Khusus Layar HP (Mobile) */
 @media (max-width: 768px) {
-  /* Kecilkan ukuran font angka biar muat & rapi */
   .stat-num {
-    font-size: 1.5rem !important; /* Pakai !important biar pasti berubah */
-    word-wrap: break-word; /* Jaga-jaga kalau teks kepanjangan */
+    font-size: 1.5rem !important;
+    word-wrap: break-word;
   }
 
-  /* Kecilkan label sedikit */
   .stat-label {
     font-size: 0.75rem;
   }
 
   /* --- LOGIKA GARIS KOTAK-KOTAK (2x2) --- */
 
-  /* Item Ganjil (Kiri): Tetap pakai garis kanan */
   .stat-item:nth-child(odd) {
     border-right: 1px solid #e2e8f0;
   }
 
-  /* Item Genap (Kanan): Hapus garis kanan (biar gak nempel pinggir layar) */
   .stat-item:nth-child(even) {
     border-right: none;
   }
 
-  /* Dua Item Teratas: Tambah garis bawah */
   .stat-item:nth-child(-n + 2) {
     border-bottom: 1px solid #e2e8f0;
   }

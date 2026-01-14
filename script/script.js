@@ -1,3 +1,4 @@
+// Anak Agung Ngurah Krisna Artha Wibawa 240040075 BB244
 /* ===============================
    MOBILE MENU
 ================================ */
@@ -87,7 +88,6 @@ function getBotResponse(input) {
     <br>6. International Dual Degree`;
   }
 
-  // 2. LOGIC LOKASI (Sudah diupdate jadi 3 Kampus: Renon, Jimbaran, Abiansemal)
   if (val.includes("alamat") || val.includes("lokasi") || val.includes("kampus")) {
     return `Kami hadir di 3 lokasi strategis:
     <br>1. <b>Kampus Renon (Pusat)</b>: Jl. Raya Puputan No. 86, Denpasar.
@@ -95,26 +95,21 @@ function getBotResponse(input) {
     <br>3. <b>Kampus Abiansemal</b>: Jl. Janger Dauh Yeh Cani, Abiansemal, Badung.`;
   }
 
-  // 3. LOGIC PENDAFTARAN (Versi Ramah & Informatif)
   if (val.includes("daftar") || val.includes("pmb") || val.includes("gabung")) {
     return "Wah, senang sekali Kakak tertarik bergabung! 🥰 Untuk pendaftaran mahasiswa baru. Silakan kunjungi portal PMB kami di: <a href='https://siap.stikom-bali.ac.id/' target='_blank'>SIAP STIKOM</a>. Kami tunggu kehadirannya di kampus ya!";
   }
 
-  // 4. LOGIC BIAYA (Versi Ramah & Informatif)
   if (val.includes("biaya") || val.includes("spp") || val.includes("harga") || val.includes("uang")) {
     return "Mengenai rincian biaya kuliah, Kami menyediakan informasi lengkap di website resmi. Silakan cek detailnya di sini: <a href='https://siap.stikom-bali.ac.id/' target='_blank'>Info Biaya Kuliah</a>.";
   }
 
-  // 5. LOGIC SAPAAN (Tetap, tidak dihapus)
   if (val.includes("halo") || val.includes("hai") || val.includes("siang") || val.includes("pagi")) {
     return "Halo 👋 Ada yang bisa saya bantu?";
   }
 
-  // DEFAULT REPLY (Jika bot tidak mengerti)
   return "Maaf, pertanyaan belum saya pahami. Silakan hubungi (0361) 244445.";
 }
 
-// Event chatbot
 if (chatSubmitBtn) {
   chatSubmitBtn.addEventListener("click", sendMessage);
 }
