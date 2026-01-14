@@ -299,3 +299,87 @@ header {
     }
   }
 }
+
+/* =========================================
+    TAMPILAN TABLET 
+   ========================================= */
+@media (min-width: 601px) and (max-width: 900px) {
+  .sidebar-overlay {
+    width: 360px;
+    height: auto;
+    max-height: 90vh;
+    top: 50%;
+    right: 20px;
+    bottom: auto;
+    left: auto;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    opacity: 1;
+    animation: none;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.15);
+  }
+
+  .sidebar-header {
+    border-radius: 20px 20px 0 0;
+    text-align: left;
+    padding: 30px;
+  }
+
+  .info-card {
+    display: block;
+    bottom: 30px;
+    left: 30px;
+    width: 280px;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    z-index: 5;
+  }
+
+  .mobile-info-toggle {
+    display: none;
+  }
+  .backdrop {
+    display: none;
+  }
+}
+
+/* =========================================
+   FIX TAMPILAN HP (Supaya Map Lebih Luas)
+   Range: Layar HP (< 600px)
+   ========================================= */
+@media (max-width: 600px) {
+  .sidebar-overlay {
+    /* UBAH TINGGI DISINI */
+    height: 45vh !important; /* Form cuma ambil 45% layar, Map dapet 55% */
+    bottom: 0;
+    border-radius: 25px 25px 0 0;
+  }
+
+  /* Kecilkan padding header biar hemat tempat */
+  .sidebar-header {
+    padding: 15px 20px !important;
+  }
+
+  .sidebar-title {
+    font-size: 1.3rem !important; /* Judul dikecilin dikit */
+    margin-bottom: 0;
+  }
+
+  .sidebar-subtitle {
+    font-size: 0.8rem !important;
+    display: none; /* Subtitle dihilangkan biar hemat tempat map */
+  }
+
+  /* Body form bisa discroll */
+  .sidebar-body {
+    padding: 20px !important;
+    overflow-y: auto; /* Pastikan bisa discroll kalau kepotong */
+  }
+
+  /* Geser tombol "Info Kampus" ke atas dikit biar gak ketutup form */
+  .mobile-info-toggle {
+    bottom: 48vh !important; /* Muncul pas di atas kotak form */
+    z-index: 50;
+  }
+}

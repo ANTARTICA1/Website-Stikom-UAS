@@ -418,7 +418,8 @@ body {
     gap: 30px;
   }
   .stat-item {
-    border-right: none;
+    border: none !important;
+    border-right: none !important;
   }
   .split-layout {
     grid-template-columns: 1fr;
