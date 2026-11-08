@@ -1,4 +1,4 @@
-# Makeover Website Kampus ITB STIKOM Bali - Next-Gen Campus Experience
+# ITB STIKOM Bali Campus Web Platform Redesign - Next-Gen Campus Experience
 
 A comprehensive front-end redesign and user experience makeover of the official ITB STIKOM Bali campus web platform. Centered around the concept of "Next-Gen Campus Experience", this platform modernizes academic portals through immersive multimedia, human-centered UI/UX design, visual hierarchy engineering, and assistive accessibility tools.
 
@@ -22,10 +22,10 @@ Although the institutional brand identity contains blue and red hues, primary us
 ## Visual Previews
 
 ### Campus Architecture & Facilities
-![Kampus ITB STIKOM Bali](src/gedung.png)
+![ITB STIKOM Bali Campus Architecture](src/gedung.png)
 
 ### Academic Honors & Accreditation
-![Penghargaan dan Akreditasi](src/award-desktop.png)
+![Institutional Honors and Accreditations](src/award-desktop.png)
 ## Key Features and Pages
 
 ### 1. Immersive Digital Gateway (Home - `index.html`)
@@ -93,7 +93,7 @@ Website-Stikom-UAS/
 ## Author
 
 Anak Agung Ngurah Krisna Artha Wibawa (NIM: 240040075)  
-Program Studi Sistem Informasi  
+Department of Information Systems  
 Institut Teknologi dan Bisnis (ITB) STIKOM Bali  
 GitHub: [ANTARTICA1](https://github.com/ANTARTICA1)
 
