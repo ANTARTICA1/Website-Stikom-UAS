@@ -19,13 +19,10 @@ Although the institutional brand identity contains blue and red hues, primary us
 - Informational Pages (Home, News, Contact, Curricula): Engineered using the **Inter** sans-serif font family. Selected for its tall x-height and clear letter spacing, optimizing rapid scanning across diverse mobile and desktop screen resolutions.
 - Institutional Heritage Pages (Campus Profile, History): Enhanced with **Playfair Display** serif headings combined with Inter body copy, delivering elegance for historical timelines, vision-mission declarations, and leadership citations.
 
-## Visual Previews
+## Interface Preview
 
-### Campus Architecture & Facilities
-![ITB STIKOM Bali Campus Architecture](src/gedung.png)
+[![Interface Preview Status](https://img.shields.io/badge/Interface_Preview-Documentation_in_Progress-2563eb?style=for-the-badge)](https://github.com/ANTARTICA1/Website-Stikom-UAS)
 
-### Academic Honors & Accreditation
-![Institutional Honors and Accreditations](src/award-desktop.png)
 ## Key Features and Pages
 
 ### 1. Immersive Digital Gateway (Home - `index.html`)
