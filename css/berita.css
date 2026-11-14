@@ -1,19 +1,16 @@
 /* Anak Agung Ngurah Krisna Artha Wibawa 240040075 BB244 */
 
 :root {
-  /* Warna dari Halaman Detail */
   --stikom-navy: #003366;
   --tech-cyan: #00d2ff;
   --dark-text: #1a1a1a;
   --light-gray: #f2f5f8;
 
-  /* Warna dari Halaman Menu */
   --stikom-blue-primary: #004ea2;
   --stikom-blue-light: #0062cc;
   --stikom-gold: #ffc107;
   --text-dark: #2c3e50;
 
-  /* Font */
   --font-main: "Inter", sans-serif;
 }
 

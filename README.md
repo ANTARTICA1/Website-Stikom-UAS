@@ -21,7 +21,20 @@ Although the institutional brand identity contains blue and red hues, primary us
 
 ## Interface Preview
 
-[![Interface Preview Status](https://img.shields.io/badge/Interface_Preview-Documentation_in_Progress-2563eb?style=for-the-badge)](https://github.com/ANTARTICA1/Website-Stikom-UAS)
+### 1. Main Highlight & Smart Announcement Panel
+The primary landing surface featuring the institution's top news broadcast, quick navigation, and the dynamic modal announcement hub.
+
+![Highlight Utama dan Papan Pengumuman ITB STIKOM Bali](docs/screenshots/stikom_hero_announcements.jpg)
+
+### 2. News Feed & Campus Virtual Tour
+Content feed highlighting student community events (UKM HIMATOGRAPHY, Charity Night), popular topic filters, and the 360° virtual tour launch card.
+
+![Berita Terbaru dan Virtual Tour Kampus ITB STIKOM Bali](docs/screenshots/stikom_news_virtualtour.jpg)
+
+### 3. Campus Architectural Facade
+Frontal architectural elevation of the ITB STIKOM Bali Renon campus building, serving as the visual anchor and institutional identity for the portal.
+
+![Gedung Utama ITB STIKOM Bali Renon](docs/screenshots/stikom_campus_facade.jpg)
 
 ## Key Features and Pages
 
@@ -64,6 +77,8 @@ Although the institutional brand identity contains blue and red hues, primary us
 ```
 Website-Stikom-UAS/
 ├── css/                     # Compiled and modular stylesheets
+├── docs/
+│   └── screenshots/         # Interface previews and architectural imagery
 ├── html/                    # Sub-pages (profile, news, academic programs, contact)
 ├── script/                  # Client-side scripts (text resizer, timeline, modal logic)
 ├── src/                     # Media assets (campus imagery, badges, videos)
