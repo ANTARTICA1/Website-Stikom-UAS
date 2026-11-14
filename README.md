@@ -21,8 +21,8 @@ Although the institutional brand identity contains blue and red hues, primary us
 
 ## Interface Preview
 
-### 1. Main Highlight & Smart Announcement Panel
-The primary landing surface featuring the institution's top news broadcast, quick navigation, and the dynamic modal announcement hub.
+### 1. Main Highlight & Announcement Panel
+The primary landing surface featuring the institution's top news broadcast, quick navigation, and the modal announcement panel.
 
 ![Highlight Utama dan Papan Pengumuman ITB STIKOM Bali](docs/screenshots/stikom_hero_announcements.jpg)
 
@@ -40,7 +40,7 @@ Frontal architectural elevation of the ITB STIKOM Bali Renon campus building, se
 
 ### 1. Immersive Digital Gateway (Home - `index.html`)
 - Fullscreen Looping Video Hero: High-definition ambient background video presenting campus life.
-- Smart Modal Announcement Hub: Side panel pop-up system enabling rapid reading of campus circulars without requiring page reloads.
+- Announcement Panel (Modal System): Side panel pop-up system enabling direct reading of campus circulars without requiring page reloads.
 - Interactive Academic Cards: Dynamic cards with hover elevation effects highlighting undergraduate programs (S1 Sistem Informasi, S1 Sistem Komputer, S1 Teknologi Informasi, S1 Bisnis Digital, D3 Manajemen Informatika).
 - Responsive Achievement Banner: Viewport-adaptive visual banner scaling dynamically across mobile and desktop displays.
 

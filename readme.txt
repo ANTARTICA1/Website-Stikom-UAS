@@ -78,7 +78,7 @@ A. BERANDA (HOME)
    - Hero Video Background: Menampilkan video atmosfer kampus secara looping 
      layar penuh untuk memberikan kesan visual yang dinamis dan modern sejak 
      detik pertama.
-   - Smart Announcement Panel: Papan pengumuman di sisi kanan menggunakan 
+   - Announcement Panel: Papan pengumuman di sisi kanan menggunakan 
      sistem Modal Pop-up. Pengguna dapat membaca detail pengumuman secara 
      instan tanpa perlu berpindah halaman (Loading lebih cepat).
    - Interactive Program Cards: Kartu Program Studi dilengkapi efek animasi 
